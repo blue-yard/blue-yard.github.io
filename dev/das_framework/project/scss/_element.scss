@@ -1,0 +1,176 @@
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after { // Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+	box-sizing: inherit;
+}
+//html {
+//	height: 100%;
+//	overflow-y: scroll; // force scrollbar to prevent flicker on short pages
+//}
+//html, body {
+//    overflow: hidden;
+////	    height: 100%;
+//}
+//	body{
+//	overflow-y: scroll; // force scrollbar to prevent flicker on short pages
+//	    height: 100%;
+//	}
+
+* {
+	@include font-smoothing(legacy);
+}
+
+
+
+
+body{
+	@include _(margin-0);
+	opacity: 1;
+	transition: opacity 1s 0s $easing !important;
+	.is-just-loaded & {
+		opacity: 0;
+		transition: opacity 0s 0s linear !important;
+	}
+
+	&.in-transit { // set in .document-ready.js - serves to force repaint on resizing window and mainly change of device orientation, especially ipads.
+		opacity: .999;
+		transition: opacity 1s -1s linear !important;
+	}
+	&.body-index {
+		background-color: $brand-dark;
+	}
+}
+a {
+	@include _(transition);
+	color: $link-color;
+	&:hover,&:focus {
+		color: $link_hover_color;
+	}
+	&:active {
+		color: $link_active_color;
+	}
+}
+svg {
+	@include _(display-block);
+	width: 100%;
+	height: 100%;
+}
+section {
+	@include _(clear-both);
+	@include _(margin-0);
+	padding: $u*3 0 $u*2;
+	@include breakpoint(medium) {
+		padding-right: $u;
+		padding-left: $u;
+	}
+}
+strong, dfn {
+	//font-weight: bold;
+	font-weight: $body-font-bold;
+}
+em, dfn {
+	font-style: normal;
+}
+address {
+	@include _(font-normal);
+}
+small {
+	@include _(font-size--1);
+}
+abbr[title] , dfn[title] {
+	text-decoration: none;
+	@include _(underline-dotted);
+}
+hr {
+	height: 2px;
+	@include _(margin-u-0);
+	border: 0;
+	@include _(color-black);
+	background-color: currentColor;
+}
+figure, img {
+	max-width: 100%;
+	width: 100%;
+}
+figure {
+	@include _(position-relative);
+	@include _(margin-0);
+}
+figcaption {
+	@include _(padding-u2);
+	cite {
+		@include _(display-block);
+		@include _(text-align-right);
+		@include _(font-size--1);
+	}
+}
+cite {
+}
+time {
+	@include _(font-normal);
+}
+img {
+	height: auto;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 $u*2;
+	@include _(text-align-center);
+	@include _(color-heading);
+	@include _(font-family-body-bold);
+}
+h2 {
+	@include _(font-size-5);
+	@include breakpoint(medium) {
+		@include _(font-size-8);
+	}
+}
+p {
+	&:first-of-type {
+		margin-top: 0;
+	}
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+	&:empty {
+		@include _(display-none);
+	}
+}
+blockquote {
+	@include _(padding-u);
+	@include _(position-relative);
+	 p {
+		box-shadow: none;
+		@include _(padding-0);
+	}
+	* {
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&:before, &:after {
+			font-size: 5em;
+			@include _(color-bright);
+			@include _(position-absolute);
+			@include _(line-height-0);
+		}
+		&:before {
+			top: 0;
+			left: -.2em;
+		}
+		&:after {
+			right: -.2em;
+			bottom: .2em;
+		}
+	}
+}
+
+ul, ol, li { // lists with style are at module/list
+	@include _(list-style-none);
+	@include _(margin-0);
+	@include _(padding-0);
+}
+iframe{
+		@include _(overflow-hidden);
+}

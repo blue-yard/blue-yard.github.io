@@ -1,0 +1,45 @@
+// * THE FLOAT GRID MUST DIE EVENTUALLY*/
+// * Grid
+// *
+// * Set up responsive grid system.
+// *
+// * This is heavily influenced by the Semantic Grid http://semantic.gs
+// *
+// * @author Abban Dunne http://abandon.ie
+// * @author James Wilson http://jimmynotjim.com
+// * @version 1.1
+$gridsystem_width: $column * 1px;
+$padding: $unit * 0.5;
+//$correction: 0.5 / $site_width * 100 * 1%; // NOTE: Check this in IE
+// Ensure grid columns are set to border-boxes. This is essential
+// Our row container
+@mixin row($padding:0){
+	@include _(clearfix);
+	@include _(block);
+	max-width: $site_width;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $padding;
+	padding-left: $padding;
+}
+// Our column container
+@mixin column($x, $padding:$padding, $column:$column, $float:left){
+// 	@include border-box();
+// 	display: inline; // to fix ie6 float double margin bug - remove if you do not care ie<7
+	float: $float;
+	//width: 100%*($x / $column);
+	width: percentage($x / $column);
+	padding-right: $padding;
+	padding-left: $padding;
+	//IE 6 & 7 Fix
+	//*width: 100%*(($x / $gridsystem_width)-$correction);
+	//*padding: 0 ($padding)-$correction;
+}
+// Push adds left margin
+@mixin push($offset:1, $column:$column) {
+	margin-left: percentage($offset / $column);
+}
+// Pull adds right margin
+@mixin pull($offset:1, $column:$column) {
+	margin-right: percentage($offset / $column);
+}

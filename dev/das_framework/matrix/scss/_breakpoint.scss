@@ -1,0 +1,43 @@
+@charset "UTF-8";
+// BREAKPOINTS
+@mixin breakcustom($point, $constraint:min-width){
+	@media ($constraint: $point) { @content; }
+}
+$breakwidths: (
+	"medium"  : $medium_width,
+	"large" : $large_width,
+	"huge"  : $huge_width,
+	"giant"  : $giant_width
+);
+$breakheights: (
+	"medium"  : $medium_height,
+	"large" : $large_height,
+	"huge"  : $huge_height,
+	"giant"  : $giant_height
+);
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+@mixin breakpoint($breakpoint) {
+	// Get the width from the keyword `$breakpoint`
+	// Or `null` if the keyword doesn't exist in `$breakpoints` map
+	$width: map-get($breakwidths, $breakpoint);
+	$height: map-get($breakheights, $breakpoint);
+	// If `$breakpoint` exists as a key in `$breakpoints`
+	@if $width != null and $height != null {
+		// Update `$current-breakpoint`
+		$current-breakpoint: $breakpoint !global;
+		// Open a media query block
+		@media (min-width: $width) and (min-height: $height) {
+			// Let the user dump content
+			@content;
+		}
+		// Then reset `$current-breakpoint` to `$default-breakpoint` (root)
+		$current-breakpoint: $default-breakpoint !global;
+	}
+	// If `$breakpoint` doesn't exist in `$breakpoints`,
+	// Warn the user and do nothing
+	@else {
+		@warn "Invalid breakpoint `#{$breakpoint}`.";
+	}
+}
+

@@ -1,0 +1,21 @@
+table.table {
+		@include _(margin-u-0);
+		th {
+		@include _(background-color-grey);
+		@include _(color-white);
+		@include _(font-smoothing-legacy);	@include _(bold);
+		}
+		tr:not(:last-child) {
+			th, td {
+				border-bottom: 1px solid $white;
+			}
+		}
+		tr:nth-child(2n+1) {
+			@include _(background-color-bright);
+		}
+		tr:nth-child(2n+1) {
+			td:not(:last-child), th:not(:last-child) {
+			border-right: 1px solid $white;
+			}
+		}
+}

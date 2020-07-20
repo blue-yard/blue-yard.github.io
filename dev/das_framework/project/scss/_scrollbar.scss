@@ -1,0 +1,25 @@
+//* SCROLLBAR */
+$w: 16px;
+$track: $black;
+$thumb: $main-color;
+$thumbradius: $w/4; //$w/2;
+$thumbborder: 1px;
+::-webkit-scrollbar {
+	width: auto;
+    width: $w/2;
+		@include breakpoint(medium) {
+    	width: $w;
+		}
+}
+::-webkit-scrollbar-track {
+   background-color: $track;
+}
+::-webkit-scrollbar-thumb {
+    color: $track;
+    background-color: $thumb;
+ 	  border: $thumbborder solid;
+ 		border-radius: $radius;
+ 		@include breakpoint(medium) {
+    	width: $w;
+ 	  }
+}

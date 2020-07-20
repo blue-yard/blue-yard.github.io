@@ -1,0 +1,66 @@
+// Grid options =
+$unit: 32px;//px2em(16); //24px; // Your gutter width
+$u: $unit;
+$gutter: $unit;
+$column: 12; // The amount of columns you want. and you always want 12.
+
+$setGridClasses: false; // do you want grid classes for viewports >= medium? see helper.scss
+
+
+$site_width_pxint: 3000; //1366; // 1366px is a popular screen width //Set a maximum width of the site
+
+//$site_width: $site_width_pxint * 1px; // Set a maximum width of the site
+$site_width: px2em($site_width_pxint); // Set a maximum width of the site
+
+
+// breakpoints horizontal
+// defining them in px values
+
+$medium_width_pxint: 440;//440;// 768px is ipad portrait
+$large_width_pxint:  1023;//1023;// 1024px is ipad landscape
+$huge_width_pxint:   1366;
+$giant_width_pxint:  1921;
+
+
+
+//$medium_width:  1px * $medium_width_pxint;
+//$large_width: 1px * $large_width_pxint;
+//$huge_width: 1px * $huge_width_pxint;
+//$giant_width: 1px * $giant_width_pxint;
+//$site_width_giant: $site_width;
+
+//setting them in em
+
+$medium_width:  px2em($medium_width_pxint);
+$large_width: px2em($large_width_pxint);
+$huge_width: px2em($huge_width_pxint);
+$giant_width: px2em($giant_width_pxint);
+
+//$site_width_giant: $site_width;
+$site_width_giant: percentage($huge_width*$font_scale_huge/$giant_width); // Set a maximum width of the site when viewport is giant
+
+
+
+
+// breakpoints vertical
+// defining them in px values
+// use 0 for values if you dont want any
+
+//$medium_height_pxint: 100;
+//$large_height_pxint: 200;
+//$huge_height_pxint: 400;
+//$giant_height_pxint: 600;
+
+
+$medium_height_pxint: 0;
+$large_height_pxint: 0;
+$huge_height_pxint: 0;
+$giant_height_pxint: 0;
+
+
+//setting them in em
+
+$medium_height: px2em($medium_height_pxint);
+$large_height: px2em($large_height_pxint);
+$huge_height: px2em($huge_height_pxint);
+$giant_height: px2em($giant_height_pxint);

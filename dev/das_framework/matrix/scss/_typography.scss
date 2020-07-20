@@ -1,0 +1,405 @@
+html {
+	font-size: 100.01%;
+	-webkit-text-size-adjust: 100%; // prevent ios from adjusting
+	}
+body {
+	font-size: $base_font_size * $font_scale_small;
+	@include _(color-body);
+	line-height: $line-height;
+	@include _(font-family-body);
+	font-weight: $body-font-normal;
+	// Optional type aliasing
+	text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01);
+//	@include font-smoothing();
+}
+body{
+	@include breakpoint(medium) {
+		font-size: $base_font_size * $font_scale_medium;
+	}
+	@include breakpoint(large) {
+		font-size: $base_font_size * $font_scale_large;
+	}
+	@include breakpoint(huge) {
+		font-size: $base_font_size * $font_scale_huge;
+	}
+	@include breakpoint(giant) {
+			font-size: $base_font_size * $font_scale_giant;
+	}
+}
+abbr[title], dfn[title] {
+  cursor: help;
+}
+// ==========================================================
+// = Selection Colors                                       =
+// ==========================================================
+@if $use_selection_colors == true {
+	::selection { // do NOT use extends here
+		background-color: $selection-background-color;
+		color: $selection-color;
+	}
+	::-moz-selection { // do NOT use extends here
+		background-color: $selection-background-color;
+		color: $selection-color;
+	}
+	img::selection {
+		@include _(background-color-transparent);
+	}
+	img::-moz-selection {
+		background-color: transparent;
+	}
+}
+body {
+	-webkit-tap-highlight-color: $tap_highlight_color;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: $placeholder_color;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: $placeholder_color;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: $placeholder_color;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+	color: $placeholder_color;
+	@include font-smoothing();
+}
+::placeholder {
+	color: $placeholder_color;
+}
+:placeholder-shown {
+	color: $placeholder_color;
+}
+[disabled] {
+	color: $placeholder_color;
+}
+// ==========================================================
+// = Links                                                  =
+// ==========================================================
+a {
+	@include _(color-link);
+	text-decoration: none;
+	cursor: pointer;
+	&:hover {
+		@include _(color-link-hover);
+	//	@include _(background-color-transparent);
+	}
+	&:visited:hover{
+		@if $link-visited-color != none {
+			@include _(color-link-hover);
+		}
+	//	@include _(background-color-transparent);
+	}
+	&:active {
+		@if $link-active-color != none {
+		 @include _(color-link-active);
+		}
+		outline: none;
+	}
+	&:visited {
+		 @if $link-visited-color != none {
+			 @include _(color-link-visited);
+		}
+	}
+	&:focus {
+		@if $link-active-color != none {
+		 @include _(color-link-active);
+		}
+ //  outline: 1px solid; // for a11y.
+ //  outline-offset: -1px;
+	 outline: none; // no good for a11y.
+	}
+	//@include _(transition);
+}
+i {
+	font-style: normal;
+}
+b {
+	font-weight: normal;
+}
+u, s, strike {
+	text-decoration: none;
+}
+// ==========================================================
+// = Headings                                               =
+// ==========================================================
+h1, h2, h3, h4, h5, h6 {
+}
+// ==========================================================
+// = General // Misc                                                 =
+// ==========================================================
+p, ul, ol, dl, li, dd, dt, figure, form, blockquote, q, hr, pre, table, fieldset, menu, code, samp {
+	margin: 0 0 fs() 0;
+	padding: 0;
+}
+hr {
+	margin: fs() auto;
+}
+q {
+	@include localized-quotation-marks($language);
+}
+blockquote > *:first-child {
+	@include localized-quotation-marks($language, true, false);
+}
+blockquote > *:last-child {
+	@include localized-quotation-marks($language, false, true);
+}
+// ==========================================================
+// = Paragraph                                                 =
+// ==========================================================
+p {
+	//max-width: $line_width;
+}
+// ==========================================================
+// = Images                                                 =
+// ==========================================================
+// Make images responsive
+figure img {
+  width: 100%;
+  height: auto;
+  @include _(display-block);
+}
+// Figcaption styling
+figcaption {
+	padding: fs() 0 0;
+	margin: 0;
+}
+img {border: 0;	-ms-interpolation-mode: bicubic} /* Improve IE's resizing of images */
+svg:not(:root) {overflow: hidden} /* Correct IE9 overflow */
+// ==========================================================
+// = Lists                                                  =
+// ==========================================================
+li {
+}
+// ==========================================================
+// = Forms                                                  =
+// ==========================================================
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+label {
+  @include _(display-block);
+}
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="time"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="week"],
+textarea,
+button {
+	  display: block;
+ //   margin: 0;// 0 fs(1);
+		 margin: $unit auto;
+		padding: fs(-5) fs(-3);
+    line-height: $line-height;
+    font-family: $body-family;
+	 //	box-shadow: 0 0 0 1px $light inset;
+    background-color: $bright;
+   &:focus {
+    background-color: $white;
+	 outline: none;
+ 	 //	outline: 1px solid $accent-color; // for a11y.
+	 //	outline-offset: -1px;
+	 //border: 1px solid $accent-color;
+	 box-shadow: 0 0 0 2px $accent-color inset;
+   }
+}
+select {
+    width: 100%;
+    height: $line-height + (fs(-5,none) * 2em);
+    @include _(margin-0);
+    border: 1px solid $bright;
+    @include _(font-family-body);
+    @include _(background-color-bright);
+}
+input[type="range"],
+input[type="color"] {
+    vertical-align: middle;
+    height: 1.5em;
+    width: 100%;
+    @include _(font-family-body);
+}
+input[type="range"] {
+    height: 1.4em;
+}
+input[type="color"] {
+    width: 1.5em;
+    @include _(font-family-body);
+}
+input[type="search"] {
+	appearance: none;
+	&::-webkit-search-cancel-button {
+	 -webkit-appearance: searchfield-cancel-button;
+	}
+	&::-webkit-search-decoration {
+	 -webkit-appearance: searchfield-decoration;
+	}
+}
+//input[type=range] {
+//	margin-left: $unit/2;
+//	margin-right: $unit/2;
+//	width: calc(100% - #{$unit});
+//	&:focus {
+//		outline: none;
+//	}
+//	$track-h:  $unit;
+//
+//	$thumb-d: px2rem(23px);
+//
+//	@mixin track() {
+//		height: $track-h;
+//	  background: linear-gradient($grey, $bright);
+//	  box-shadow: 0 0 0 1px $light;
+//	  border-radius: $radius;
+//	}
+//
+//	@mixin thumb() {
+//	  border: none;
+//	  width: $thumb-d*2;
+//	  height: $thumb-d;
+//	  border-radius: $radius;
+////	  $stop0: percentage(5/12);
+////	  $stop1: percentage(7/12);
+////	  $delta: 3%;
+//	  box-shadow: inset 1px 1px 0 0 $bright, 1px 1px 0 0 $dun, 0 0 $unit/2 $black;
+//	  background-image: linear-gradient($angle, $accent-dark, $accent-color, $accent-light);
+//	  cursor: ew-resize;
+//	}
+//
+//
+//  &,
+//  &::-webkit-slider-runnable-track,
+//  &::-webkit-slider-thumb {
+//    -webkit-appearance: none;
+//  }
+//
+//  background: none;
+//  font: 1em;
+//  cursor: pointer;
+//
+//  &::-webkit-slider-runnable-track {
+//    @include track();
+//  }
+//  &::-moz-range-track {
+//    @include track();
+//  }
+//  &::-ms-track {
+//    border: none;
+//    @include track();
+//    color: transparent;
+//  }
+//  &::-ms-fill-lower, &::-ms-tooltip {
+//    display: none;
+//  }
+//
+//  &::-webkit-slider-thumb {
+//    margin-top: ($track-h - $thumb-d)/2;
+//    @include thumb();
+//  }
+//  &::-moz-range-thumb {
+//    @include thumb();
+//  }
+//  &::-ms-thumb {
+//    @include thumb();
+//  }
+//}
+// Time element is a little weird with the extra controls
+input[type="time"] {
+//	margin: 0 0 0.55em;
+}
+progress,
+meter {
+  @include _(display-block);
+  width: 100%;
+  height: 1.5em;
+}
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  margin: 0 0 fs(-1);
+  padding: fs(-2);
+  //border: 1px solid $grey;
+	@include _(border-none);
+  line-height: $line-height;
+  @include _(font-family-body);
+  //border-radius: $radius;
+	cursor: pointer;
+	appearance: button;
+}
+//input[type="search"] {
+//	appearance: none;
+//	box-sizing: border-box;
+//}
+//input[type="search"]::-webkit-search-decoration {
+//	-webkit-appearance: none;
+//}
+button::-moz-focus-inner, input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+input[type="checkbox"], input[type="radio"] {
+	box-sizing: border-box;
+}
+input[type="checkbox"] {
+	appearance: checkbox;
+}
+input[type="radio"] {
+	appearance: radio;
+}
+// ==========================================================
+// = Tables                                                 =
+// ==========================================================
+table {
+    width:100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+thead {
+	th, td {
+	}
+}
+tbody {
+}
+tfoot {
+}
+th, td {
+	padding: .5em;
+	@include _(text-align-left);
+}
+// ==========================================================
+// = Other elements                                         =
+// ==========================================================
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline} /* Position 'sub' and 'sup' without affecting line-height */
+sup {top: -0.5em} /* Move superscripted text up */
+sub {bottom: -0.25em} /* Move subscripted text down */
+mark {
+	background-color: $selection-background-color;
+	color: $selection-color;
+	padding-right: .2em;
+	padding-left: .2em;
+}
+del {
+	color: $del-color;
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace;
+}
+pre {
+	white-space: pre; white-space: pre-wrap; word-wrap: break-word
+} /* Allow line wrapping of 'pre' */
+ins {
+	@include _(color-ins);
+}

@@ -1,0 +1,16 @@
+//// COLOR MATRIX
+//@each $color in $list-colors {
+//	// _(PLACEHOLDERS) FOR COLORS
+//	$bg: background-color-#{nth($color, 1)};
+//	$clr: color-#{nth($color, 1)};
+//	@include placeholder($bg) { background-color: nth($color, 2); }
+//	@include placeholder($clr) { color: nth($color, 2); }
+//	// REGULAR SCSS %PLACEHOLDERS:
+//	%bg-#{nth($color, 1)} {
+//		background-color: nth($color, 2);
+//	}
+//	%color-#{nth($color, 1)} {
+//		color: nth($color, 2);
+//	}
+//}
+//

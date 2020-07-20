@@ -1,0 +1,91 @@
+main#page-main.page-main
+	section#portfolio.portfolio.deck
+		h2.js-lurk.js-lurk--opacity Portfolio
+
+		ul.deck__list
+			+portfolio-deck__card(arrEntity.airtm, "https://medium.com/@BlueYard/airtm-e53e0460f640")
+				|	empowers people to regain financial liberty through a e-wallet based p2p network that allows for the exchange of financial assets without a bank account
+
+			+portfolio-deck__card(arrEntity.centrifuge, "https://medium.com/@BlueYard/centrifuge-1fcf8e8e76cd")
+				|	is developing a decentralized, blockchain-based protocol which aims to rethink how financial supply chains work — making them far more efficient and open
+
+			+portfolio-deck__card(arrEntity.decred, "https://medium.com/@BlueYard/decred-82b284b4a795")
+				|	is a blockchain and crypto currency featuring on chain governance and open participation through a hybrid PoW / PoS architecture
+
+			+portfolio-deck__card(arrEntity.filecoin, "https://medium.com/@BlueYard/filecoin-e95e5cc75122")
+				|	is a distributed data storage network backed by a token
+
+			+portfolio-deck__card(arrEntity.grid, "https://medium.com/@BlueYard/grid-b0919265659f")
+				|	is the next generation interface and building platform for spreadsheets
+
+			+portfolio-deck__card(arrEntity.meatable, "https://medium.com/@BlueYard/meatable-142114d42ef8")
+				|	are building programmable cell technology to empower the creation and design of entirely new forms of meat
+
+			+portfolio-deck__card(arrEntity.ob1, "https://medium.com/@BlueYard/ob1-openbazaar-2be35862e0bf")
+				|	are the makers of OpenBazaar, a fully decentralized market place with no central entity or gatekeeper
+
+			+portfolio-deck__card(arrEntity.oscoin, "https://medium.com/@BlueYard/oscoin-fed1fe23df9b")
+				|	are building a decentralized network between open source software and developers, allowing for the development and maintenance of open source software, independently of gatekeepers
+
+			+portfolio-deck__card(arrEntity.pitch, "https://medium.com/@BlueYard/pitch-io-7eb2e643b0d0")
+				|	are re-thinking presentation software from the bottom up, using a modern web stack and focusing on powerful creation tools, data integrations and collaboration
+
+			+portfolio-deck__card(arrEntity.protocollabs, "https://medium.com/@BlueYard/protocol-labs-35ceff61b031")
+				|	are the makers of protocols (e.g. IPFS) that upgrade the internet to make it decentralized, faster and more resilient
+
+			+portfolio-deck__card(arrEntity.spaceknow, "https://medium.com/@BlueYard/spaceknow-a651f532e854")
+				|	empowers users and organizations to understand the world around them through an AI powered satellite imagery platform
+
+			+portfolio-deck__card(arrEntity.stdlib, "https://medium.com/@BlueYard/stdlib-a-standard-library-for-the-web-3dd83f08e332")
+				|	is building the standard library of the internet for creating, distributing & discovering web services
+
+			+portfolio-deck__card(arrEntity.textile, "https://medium.com/@BlueYard/textile-a1f1ae901d27")
+				|	are building new digital experiences by focusing on user privacy, transparency and decentralization
+
+			+portfolio-deck__card(arrEntity.vectary, "https://medium.com/@BlueYard/vectary-8f0b3fd2cee1")
+				|	is democratizing 3D modelling through a powerful, yet simple in-browser engine and community platform
+	section#updates.update.deck
+		h2.js-lurk.js-lurk--opacity Updates
+		ul.deck__list
+
+			// to manipulate the logo you can put as last param: "whitelogo", "blacklogo", "colorlogo"(is equal to "")
+
+			+updates-deck__card(arrEntity.grid, "https://medium.com/@BlueYard/grid-b0919265659f", "gridteam.jpg", "The GRID team", "whitelogo")
+				| We're excited to be backing
+				|
+				strong GRID
+				|	on their mission to liberate data from - and empower users to build on top of - the world's largest database and simple programming platform: spreadsheets
+
+			+updates-deck__card(arrEntity.blueyard, "https://medium.com/@BlueYard/blueyard-2-3d0bbaf1f1b6", "by2.jpg", "Radio telescopes", "whitelogo")
+				strong BlueYard 2
+
+			+updates-deck__card(arrEntity.meatable, "https://www.businessinsider.nl/lab-grown-meat-startup-solving-barrier-meat-without-slaughter-meatable-2018-9/", "meatable_update.jpg", "One Cell Can Change Everything", "colorlogo")
+				| We are excited to back
+				|
+				strong Meatable
+				|	on their mission to create an animal-free economy based on reprogrammable cells
+
+			+updates-deck__card(arrEntity.blueyard, "https://medium.com/@BlueYard/join-our-next-blueyard-conversation-operating-systems-for-life-in-berlin-on-november-7th-30edf46490a9", "osfl.jpg", "", "whitelogo")
+				| We are going to increasingly have the ability to author life. Lets talk about it. Join our next BlueYard conversation:
+				|
+				strong Operating Systems for Life
+				|	in Berlin on November 7th
+
+			+updates-deck__card(arrEntity.airtm, "https://techcrunch.com/2018/08/29/airtm-raises-7-million-to-fight-hyperinflation/", "venezuela.jpg", "Venezuela", "whitelogo")
+				| We’re excited to back the
+				|
+				strong AirTM
+				|	team on their mission to bring financial liberty to hundreds of millions of people in developing nations, through their p2p network
+
+
+			+updates-deck__card(arrEntity.blueyard, "https://medium.com/@BlueYard/decred-x-blueyard-berlin-meetup-currencies-core-chains-the-future-of-blockchain-governance-and-6e6123afc93f", "synbio.jpg", "Meetup", "whitelogo")
+				strong Decred x BlueYard Berlin Meetup:
+				|	Currencies, Core-Chains & The Future of Blockchain Governance and Development
+
+			+updates-deck__card(arrEntity.blueyard, "https://medium.com/@BlueYard/blueyard-conversation-the-future-of-software-development-final-agenda-speakers-1621112c8f63", "iceland.jpg", "Iceland", "blacklogo")
+				| BlueYard Conversation in Reykjavik:
+				|
+				strong Future of Software Development
+				|	Final Agenda and Speakers
+		h1.js-lurk.js-lurk--opacity
+			a(href="https://medium.com/@BlueYard") More updates

@@ -1,0 +1,23 @@
+.button {
+	cursor: pointer;
+	@include _(user-select-none);
+	@include _(hyphens-none);
+	@include _(display-inline-block);
+	@include _(margin-0);
+	padding: $unit/4 $unit/2;
+	background-image: $gradient--accent;
+	@include _(background-color-accent-dark);
+	@include _(color-white);
+	@include _(border-radius);
+	@include _(border-none);
+	@include _(transition);
+
+	&:hover, &:active, &:focus {
+		@include _(color-white);
+		box-shadow: 0 0 0 2px  $accent-color inset, 0 0 0 4px $white inset;
+	}
+}
+
+
+
+

@@ -1,0 +1,250 @@
+// scale font-size for responsive breakpoints
+
+$fontScaleWithViewport: false; // do you want grid classes for viewports >= medium? see helper.scss
+
+$font_scale_small: 1;
+$font_scale_medium: 1;
+$font_scale_large: 1;
+$font_scale_huge: 1;
+$font_scale_giant: 1;
+@if $fontScaleWithViewport == true {
+	$font_scale_small: 1;
+	$font_scale_medium: 1.05;
+	$font_scale_large: 1.1;
+	$font_scale_huge: 1.15;
+	$font_scale_giant: 1.2;
+}
+
+// text-shadows
+$text-shadow_light: 0 1px 0 $white;
+$text-shadow_dark: 0 -1px 0 $dun;
+$text-glow_light: 0 0 3px $white, 0 0 5px $white, 0 0 7px $white;
+$text-glow_dark: 0 0 3px $dun;
+// Line
+$line_height: 1.6;
+$line_width: 42em; // depends on font, make a line less than 70 characters wide.
+$wide_width: $line_width * 1.5;
+// ==========================================================
+// = Fonts
+// ==========================================================
+// /* heading via google fonts */
+//$heading-font-google: 'Lato';
+//$heading-font-name-google: 'Lato';
+//$heading-font-google-weight: 400,900;
+//$heading-font-google-url: 'https://fonts.googleapis.com/css?family=' + $heading-font-google + ':' + $heading-font-google-weight;
+//@import url($heading-font-google-url);
+// /*cursive via google fonts */
+//$cursive-font-google: 'Covered+By+Your+Grace';
+//$cursive-font-name-google: "Covered By Your Grace";
+//$cursive-font-google-weight: 400;
+//$cursive-font-google-url: 'https://fonts.googleapis.com/css?family=' + $cursive-font-google + ':' + $cursive-font-google-weight;
+//@import url($cursive-font-google-url);
+$body-font-bold: 700;
+//$body-font-normal-italic: 400i;
+$body-font-normal: 400;
+//body via google fonts
+//$body-font-google: 'Noto+Sans';
+//$body-font-name-google: "Noto Sans";
+//$body-font-google-weight: $body-font-normal-italic, $body-font-normal;
+//$body-font-google-url: 'https://fonts.googleapis.com/css?family=' + $body-font-google + ':' + $body-font-google-weight;
+//@import url($body-font-google-url);
+//$body-font-bold-google: 'Lato';
+//$body-font-bold-name-google: "Lato";
+//$body-font-bold-google-weight: $body-font-bold;
+//$body-font-bold-google-url: 'https://fonts.googleapis.com/css?family=' + $body-font-bold-google + ':' + $body-font-bold-google-weight;
+//@import url($body-font-bold-google-url);
+// /* via myfonts */
+//$heading-font-name-myfonts: 'FF Milo Serif OT Medium';
+//$body-font-name-myfonts:'FF Enzo OT Medi';
+//$body-font-name-bold-myfonts:'FF Enzo OT Bold';
+
+
+// /* the font stacks */
+$system_sans_stack: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Lucida Grande", "Helvetica Neue", Helvetica, "DejaVu Sans", Arial;
+//$sans_stack:  Avenir, "Roboto", Calibri, $system_sans_stack ,sans-serif;
+$sans_stack:  "AvenirPro", $system_sans_stack ,sans-serif;
+$serif_stack: Cambria, Georgia, serif;
+$cursive_stack: cursive;
+$monospace_stack: Consolas, monospace;
+// /* the font family constants */
+$body_family: $sans_stack;
+$body_family_bold: $body_family;
+$heading_family: $body_family;
+$title_family: "AvenirLTPro-Light", $body_family;
+$cursive_family: $cursive_stack;
+$monospace_family: $monospace_stack;
+// ==========================================================
+// = Set up modular scale or whatever scale you want        =
+// ==========================================================
+@function fs($n:0,$unit:rem) {
+	$n: $n + 6; // index of size 0
+	$value:
+6/16
+8/16
+10/16
+12/16
+14/16
+16/16
+18/16
+20/16
+22/16
+24/16
+36/16
+42/16
+48/16
+54/16;
+//	0.09
+//	0.146
+//	0.236
+//	0.382
+//	0.618
+//	1
+//	1.618
+//	2.618
+//	4.236
+//	6.854
+//	11.089
+//	17.942
+//	29.03;
+    @if ($unit == 'none') {
+	    @return nth($value, $n);
+		} @else {
+			@return nth($value, $n) * $base_font_size; //px fallback
+	    @return nth($value, $n) + $unit; //rem or whatever
+		}
+}
+// fibonacci numbers, you may need them someday
+//@function fibo($i) {
+//  @if $i == 0 {
+//    @return 1em;
+//  } @else if $i == 1 {
+//    @return 1;
+//  } @else {
+//  	@return fibo($i - 1) + fibo($i - 2);
+//  }
+//}
+// modular scale
+//			@import "math";
+//
+//
+//			$phi: (1+sqrt(5))/2; // golden ratio 1.61803398875
+//			$golden: $phi;
+//			$sqrt2: 1/sqrt(2);
+//			$dinA: $sqrt2;
+//			$octave: (2 / 1);
+//			$major-seventh: (15 / 8);
+//			$minor-seventh: (16 / 9);
+//			$major-sixth: (5 / 3);
+//			$minor-sixth: (8 / 5);
+//			$fifth: (3 / 2);
+//			$fourth: (4 / 3);
+//			$major-third: (5 / 4);
+//			$minor-third: (6 / 5);
+//			$major-second: (9 / 8);
+//			$minor-second: (16 / 15);
+//
+//			$msRatio: $major-third !default;
+//
+//			$msExtrema: 20 !default;
+//			$msBase-size: 1 !default;
+//			$msOther-size: 0 !default;
+//			$unit: 1em !default;
+//			$decimals: 10000 !default;
+//			// start with an empty list to place all values in
+//				$up-scale: ();
+//				$down-scale: ();
+//
+//
+//			@function sort-list($list) {
+//				// declare some empty lists to put our new order and temporary values
+//				$new-order: ();
+//				$temp: ();
+//				// fill $temp with the contents of $list
+//				$temp: join($temp, $list);
+//				// loop through all values in $list
+//			    @for $i from 1 through length($list) {
+//			      // 0 starter value
+//			      $high: 0;
+//			      // check for highest value in $temp
+//			      @for $j from 1 through length($temp) {
+//			        @if length($temp) > 0 {
+//				        @if nth($temp, $j) > $high {
+//				          $high: nth($temp, $j);
+//				        }
+//			        }
+//			      }
+//			      $new-order: append($new-order, $high);
+//			      // empty $temp for the next comparison
+//			      $temp: ();
+//			      // re-populate $temp with remaining values to sort
+//			      @for $k from 1 through length($list) {
+//			        @if nth($list, $k) < $high {
+//			          $temp: append($temp, nth($list, $k));
+//			        }
+//			      }
+//			    }
+//			  @return $new-order;
+//			}
+//			@function upordown($val) {
+//				@if $val != 0 {
+//						@if $val > 1 {
+//							$up-scale: append($up-scale, $val) !global;
+//						} @else if $val < 1 {
+//							$down-scale: append($down-scale, $val) !global;
+//						}
+//					}
+//					@return true;
+//			}
+//
+//			// get a value from the scale
+//			@function fs($i, $unit: $unit) {
+//
+//				$ret: 1;
+//				@if $i == 0 {
+//					@if ($unit == 'unitless') {
+//						@return $ret;
+//					} @else {
+//						@return $ret * $unit;
+//					}
+//				}
+//				@if length($up-scale) == 0 { // when we visit here for the first time
+//					@for $i from -$msExtrema through $msExtrema {
+//						$execute: upordown(round(power($msRatio, $i) * $msBase-size * $decimals) / $decimals);
+//						$execute: upordown(round(power($msRatio, $i) * $msOther-size * $decimals) / $decimals);
+//				    }
+//				    $up-scale: sort-list($up-scale) !global;
+//				    $down-scale: sort-list($down-scale) !global;
+//				 }
+//				@if $i < 0 {
+//					$ret: nth($down-scale, -$i);
+//				} @else if $i > 0{
+//					$ret: nth($up-scale, length($up-scale) - $i + 1);
+//				}
+//
+//				@if ($unit == 'unitless') {
+//					@return $ret;
+//				} @else {
+//					@return $ret * $unit;
+//				}
+//			}
+//
+//
+//			.fs {
+//				value: fs(-6);
+//				value: fs(-5);
+//				value: fs(-4);
+//				value: fs(-3);
+//				value: fs(-2);
+//				value: fs(-1);
+//				value: fs(0);
+//				value: fs(1);
+//				value: fs(2);
+//				value: fs(3);
+//				value: fs(4);
+//				value: fs(5);
+//				value: fs(6);
+//				value: fs(7);
+//				value: fs(8);
+//				value: fs(9);
+//				value: fs(10);
+//			}

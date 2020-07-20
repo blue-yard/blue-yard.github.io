@@ -1,0 +1,20 @@
+// z-index mapping to stay sane with all them layers
+// usage:
+// .foo {	z-index: z(fixed); }
+// .bar {	z-index: z(up); }
+// .quoox {	z-index: z(up) + 1; } // when you need to hack a bit
+$z-layers: (
+	'default':0, // get it down to the ground
+	'debug':600, // do not use for anything other
+	'modal':500, // your occasional dialog box is on top of it all
+	'fixed':400, // what is fixed is usually above
+	'flyout':300, // for little layers to get over the regular flow
+	'up':10 // move something up a tad bit
+);
+@function z($layer: 'default') {
+	@if map-has-key($z-layers, $layer) {
+		@return map-get($z-layers, $layer);
+	}
+	@warn "No z-index found in $z-layers map for `#{$layer}`. Property omitted.";
+	@return null;
+}

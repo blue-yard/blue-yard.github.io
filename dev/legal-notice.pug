@@ -1,0 +1,54 @@
+include _mixin.pug
+doctype html
+html(lang='en' class='no-js')
+	+document-head('Legal notice · BlueYard Capital')
+
+	body#blueyard.page.page-legal
+
+		+page-banner
+
+		main#page-main.page-main
+			small#legal.legal
+				h1
+					| Legal Notice
+				dl
+					dt
+						| BY Capital Management GmbH
+					dd
+					address
+						| Blue Yard Capital
+						br
+						| 						Oranienburger Straße 1-3
+						br
+						| 						10178 Berlin
+					dt
+						| General Partners
+					dd
+						ul
+							li
+							| Ciaran O’Leary
+							li
+							| Jason Whitmire
+					dt
+						| Contact email
+					dd
+						a(href='mailto:legal@blueyard.com') legal@blueyard.com
+					dt
+						| Commercial Register
+					dd
+						| Local Court of Charlottenburg
+						|
+						abbr(title='Handelsregister Abteilung B') HRB
+						|	170693 B
+					dt
+						abbr(title='Value added tax identification') VAT ID
+					dd
+						| DE 302210327
+					dt
+						| Policies and Resources
+					dd
+						a(href="https://docs.google.com/document/d/1OISqevTub7Q1DJO9Cn0bSlS4LHumXGGgLc7yIVI85sg/edit?usp=sharing") Events Code of Conduct and Incident Response Plan
+						br
+						a(href="https://blueyard.typeform.com/to/E6SkTJ") Incident Response Form
+
+		+debug

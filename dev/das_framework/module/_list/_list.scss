@@ -1,0 +1,131 @@
+ul.style > li {
+	list-style: disc;
+}
+ol.style > li {
+	list-style: decimal;
+}
+ul.none ,
+ol.none {
+	> li {
+		list-style: none;
+	}
+}
+ul.roman ,
+ol.roman {
+	> li {
+		list-style: upper-roman;
+	}
+}
+ul.decimal ,
+ol.decimal {
+	> li {
+		list-style: decimal;
+	}
+}
+
+
+ul.style, ol.style {
+	margin: fs() 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	li{
+		list-style-position: outside;
+		padding-left: .3rem;
+		padding-right: .3rem;
+		transform: translateX(1.3rem);
+	}
+}
+
+ul.decimal, ol.decimal,
+ul.roman, ol.roman {
+	li {
+		list-style-position: inside;
+		margin-bottom: 1em;
+		padding-left: 1rem;
+		text-indent: -1rem;
+		li {
+			padding-left: 0;
+		}
+	}
+}
+
+
+//.item-list  {
+//	@include _(clear-both);
+//	max-width: $line_width;
+//	@include _(margin-u-0);
+//	@include _(display-flex);
+//	flex-flow: row wrap;
+//	justify-content: flex-start;
+//	box-shadow: 0 0 0 1px inset;
+//	@include _(color-white);
+//	@include _(background-color-main-dark);
+//	li {
+//		@include _(padding-u2);
+//		@include _(hyphens);
+//		$flex-basis: calc(#{percentage(1/3)} - #{$unit/2};
+//		flex: 1 1 $flex-basis;
+//		@include _(pattern);
+//		@include breakpoint(medium) {
+//		$flex-basis: calc(#{percentage(1/4)} - #{$unit/2};
+//		flex-basis: $flex-basis;
+//		}
+//		box-shadow: 0 0 0 1px $white inset;
+//	}
+//}
+
+%definition-list {
+	//	@include _(clear-both);
+		//max-width: $line-width;
+		margin: 0;
+		@include _(hyphens);
+		dt, dd {
+			margin: 0;
+		}
+		dt {
+			padding-top: $unit/2;
+			@extend strong;
+		}
+		dd {
+			@include _(color-body);
+			padding-bottom: $unit/2;
+		}
+	//&.side-by-side {
+	//	@include breakpoint(medium) {
+	//		@include _(display-flex);
+	//		flex-flow: row wrap;
+	//		dt, dd {
+	//			flex-grow: 0;
+	//			flex-shrink: 0;
+	//			padding: $unit/2 0;
+	//			box-shadow: 0 2px $bright inset;
+	//			&:first-of-type {
+	//				box-shadow: none;
+	//			}
+	//		}
+	//		dt {
+	//			$flex-basis: percentage(1/3);
+	//			flex-basis: $flex-basis;
+	//			max-width: $flex-basis; // for ie, remove if flex-grow is !=0
+	//			@include _(position-relative);
+	//			top: .05em;
+	//			padding: $unit/2 $unit;
+	//			font-size: .9em;
+	//			@include _(pattern);
+	//			@include _(text-align-right);
+	//		}
+	//		dd {
+	//			$flex-basis: percentage(2/3);
+	//			flex-basis: $flex-basis;
+	//			max-width: $flex-basis; // for ie, remove if flex-grow is !=0
+	//			padding-left: $unit;
+	//		}
+	//	}
+	//}
+}
+
+dl {
+	@extend %definition-list;
+}
+

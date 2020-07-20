@@ -1,0 +1,117 @@
+// thx nico: https://quotation-marks.org/
+$quotation-marks: ( // https://de.wikipedia.org/wiki/Anf%C3%BChrungszeichen
+  af:    “ ”,
+  ar:    ” “,
+  at:    » «, //„ “,
+  az:    « »,
+  be:    « »,
+  bg:    „ “,
+  ca:    « »,
+  cs:    „ “,
+  cz:    „ “,
+  de:    » «, //„ “,
+  de-de: » «, //„ “,
+  de-at: » «, //„ “,
+  de-ch: « »,
+  de-li: « »,
+  de-lu: » «, //„ “,
+  dk:    » «, //„ “,
+  el:    « »,
+  en:    “ ”,
+  en-ca: “ ”,
+  en-uk: ‘ ’,
+  en-us: “ ”,
+  eo:    “ ”,
+  es:    « »,
+  et:    „ “,
+  eu:    « »,
+  fa:    « »,
+  fi:    » », //” ”,
+  fr:    '«\00A0' '\00A0»', //'“\00A0' '\00A0”';
+  fr-li: « »,
+  fr-lu:    '«\00A0' '\00A0»', //'“\00A0' '\00A0”';
+  fr-ch: « »,
+  ga:    “ ”,
+  gr:    « »,
+  he:    „ ”,
+  hr:    „ ”,
+  hu:    „ ”,
+  hy:    « »,
+  ia:    “ ”,
+  id:    “ ”,
+  is:    „ “,
+  it:    « »,
+  it-ch: « »,
+  ja:   「 」,
+  ka:    „ “,
+  ko:    “ ”,
+  li:    « »,
+  lt:    „ “,
+  lu:    » «, //„ “,
+  lv:    « »,
+  mk:    „ “,
+  mt:    ‘ ’,
+  nl:    ‘ ’,
+  no:    « »,
+  pl:    „ ”,
+  pt:    « »,
+  pt-br: “ ”,
+  pt-pt: « »,
+  ro:    „ ”,
+	rm:    « »,
+  ru:    « »,
+  se:    » », //” ”,
+  sk:    „ “,
+  sl:    „ “,
+  sq:    „ “,
+  sr:    „ ”,
+  sv:    ” ”,
+  th:    “ ”,
+  tr:    “ ”,
+  ua:    « »,
+  uk:    ‘ ’,
+  vi:    “ ”,
+  zh:    “ ”
+);
+
+$quotation-mark-placeholders: ();
+
+@mixin quotation-marks($language, $before:true, $after:true) {
+  $localized-quotation-marks: map-get($quotation-marks, $language);
+  $start: nth($localized-quotation-marks, 1);
+  $end: nth($localized-quotation-marks, 2);
+
+
+  @if ($before == true) {
+	  @if not index($quotation-mark-placeholders, $start) {
+	    $quotation-mark-placeholders: append($quotation-mark-placeholders, $start) !global;
+	    @at-root %quotation-mark-#{$start} {
+	      content: "#{$start}";
+	    }
+	  }
+  	&:before {
+    	@extend %quotation-mark-#{$start};
+  	}
+  }
+  @if ($after == true) {
+	  @if not index($quotation-mark-placeholders, $end) {
+	    $quotation-mark-placeholders: append($quotation-mark-placeholders, $end) !global;
+	    @at-root %quotation-mark-#{$end} {
+	      content: "#{$end}";
+	    }
+	  }
+	  &:after {
+	    @extend %quotation-mark-#{$end};
+	  }
+  }
+}
+
+@mixin localized-quotation-marks($languages, $before:true, $after:true) {
+  @each $language in $languages {
+    &:lang(#{$language}) {
+      @include quotation-marks($language, $before, $after);
+    }
+  }
+}
+
+

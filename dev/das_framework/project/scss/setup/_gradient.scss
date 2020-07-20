@@ -1,0 +1,21 @@
+//accent
+$gradient--accent: linear-gradient($angle-gradient,
+fade-out($accent-color, 0) 0%,
+fade-out($accent-dark, 0) percentage($phi-minor),
+$accent-color 80%);
+//main
+$gradient--main: linear-gradient($angle-gradient,
+fade-out($main-color, 0) 0%,
+fade-out($main-dark, 0) percentage($phi-minor),
+$main-light 80%);
+//grey
+$gradient--grey: linear-gradient($angle-gradient,
+fade-out($black, 0) 0%,
+fade-out($dun, 0) percentage($phi-minor),
+$black 80%);
+
+//white
+$gradient--white: linear-gradient(180deg,
+fade-out($white, 0) percentage($phi-minor),
+fade-out($white, .3) percentage($phi-major),
+fade-out($white, .5) 100%);

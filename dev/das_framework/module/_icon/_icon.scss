@@ -1,0 +1,12 @@
+.icon {
+	//	viewBox: 0 0 $unit*4 $unit*4;
+		width: $unit*4;
+		height:$unit*4;
+
+		fill: none;
+
+		stroke: currentColor;
+		stroke-line_cap: round;
+		stroke-linejoin: round;
+		stroke-width: 2px;
+}

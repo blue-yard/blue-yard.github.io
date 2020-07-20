@@ -1,0 +1,83 @@
+legend {
+//	width: 100%;
+	@include _(margin-0);
+	@include _(padding-0);
+	@include _(color-main-light);
+	@include _(font-smoothing-legacy);
+	a {
+		@include _(display-block);
+	}
+	a, a:visited, a:hover, .icon {
+		@include _(color-main-light);
+	}
+}
+
+.fieldset {
+	.field--textarea, textarea {
+		width: percentage(1/1);
+	}
+	&__group {
+//		border-bottom: 1px solid $light;
+//		box-shadow: 0 0 0 $unit/8 $bright inset;
+//		&-heading {
+//			@extend h6;
+//			@extend .block-heading;
+//			padding-top: fs();
+//			color: $light;
+//		}
+		&-heading,
+		.field:not(.field--textarea) {
+			display: inline-block;
+			padding: 0 fs(-5) 0 0;
+	//		@include _(position-relative);
+	// 	span {
+	// 		@include _(display-block);
+	// 		padding: 0 $unit/2 0 $unit;
+	// //		box-shadow: 1em 0 0 0 $white inset, $unit/-2 0 0 0 $white inset;
+	// 	}
+	// 	input {
+	// 		position: absolute;
+	// 		z-index: 100;
+	//		transform: translate(0, .2em);
+	// 	}
+		}
+	}
+//	&--proceed {
+//		@include _(padding-u);
+//		@include _(background-color-accent-light);
+//		@include _(clear-both);
+//	}
+//		//SMALL
+//	&__content {
+//		@include _(clear-both);
+//	//	@include _(padding-0-u);
+//	}
+//	&--double {
+//		@include _(clear-both);
+//		> * {
+//					@include breakpoint(medium) {
+//						margin-bottom: $unit/2;
+//					}
+//					&:nth-child(2n-1) {
+//						margin-bottom: $unit/2;
+//						box-shadow: 0 -1px $light inset;
+//						padding-bottom: $unit/8;
+//						@include breakpoint(medium) {
+//							box-shadow: 1px 0px $light, -1px 0 $white inset;
+//							padding-right: $unit/2;
+//							padding-bottom: 0;
+//						}
+//					}
+//					&:nth-child(2n) {
+//						@include breakpoint(medium) {
+//							padding-left: $unit/2;
+//							box-shadow: 1px 0px $light inset, -1px 0px $white;
+//						}
+//					}
+//				}
+//
+//	}
+//
+
+
+}

@@ -1,0 +1,392 @@
+//* EXTEND PLACEHOLDER*/
+// Those CROSS MEDIAQUERY EXTEND PLACEHOLDERS http://www.sitepoint.com/cross-media-query-extend-sass/
+// combine selectors to single lines of CSS per attribute, is meant to optimize size of CSS
+// usage: @include _(foobar);
+// add more as needed:
+@include placeholder('hover-dim') {
+	box-shadow: 0 0 0 300vmax fade-out($accent-dark, 1);
+	transition: background-color 0s, z-index 0s, box-shadow .2s $transition-timing-function;
+	z-index: z(modal) - 1;
+	&:hover {
+		transition: background-color 0s, z-index 0s, box-shadow 1.8s .2s $transition-timing-function;
+		z-index: z(modal);
+		box-shadow: 0 0 0 300vmax fade-out($accent-dark, .8);
+	}
+}
+@include placeholder('underline') {
+	//text-decoration: underline;
+	background-image: linear-gradient(to right, currentColor 0%, currentColor 100%);
+	background-position: 0 98%;
+	background-repeat: repeat-x;
+	background-size: 4px 1px;
+	//text-shadow: 3px 0 $white,2px 0 $white,1px 0 $white,-1px 0 $white,-2px 0 $white,-3px 0 $white;
+}
+@include placeholder('underline-dotted') {
+	//text-decoration: underline;
+	background-image: linear-gradient(to right, currentColor 30%, transparent 30%);
+	background-position: 0 98%;
+	background-repeat: repeat-x;
+	background-size: 4px 1px;
+//	text-shadow: 3px 0 $white,2px 0 $white,1px 0 $white,-1px 0 $white,-2px 0 $white,-3px 0 $white;
+}
+@include placeholder('underline-accent') {
+	background-image: linear-gradient(to bottom,$accent-color 0,$accent-color 100%);
+	background-position: 0 90%;
+	background-repeat: repeat-x;
+	background-size: 1px 1px;
+//	text-shadow: 3px 0 $white,2px 0 $white,1px 0 $white,-1px 0 $white,-2px 0 $white,-3px 0 $white;
+}
+@include placeholder('pattern') {
+	background-image: $pattern;
+}
+@include placeholder('font-smoothing-legacy') {
+	@include font-smoothing(legacy);
+}
+@include placeholder('skew') {
+	transform: skew(-1deg) skewX(-1deg) skewY(-1deg);
+}
+@include placeholder('rotate') {
+	transform: rotate($angle);
+}
+@include placeholder('margin-auto') {
+	margin: auto;
+}
+@include placeholder('margin-0') {
+	margin: 0;
+}
+@include placeholder('margin-u') {
+	margin: $unit;
+}
+@include placeholder('margin-u2') {
+	margin: $unit/2;
+}
+@include placeholder('margin-0-auto') {
+	margin: 0 auto;
+}
+@include placeholder('margin-u-auto') {
+	margin: $unit auto;
+}
+@include placeholder('margin-u2-auto') {
+	margin: $unit/2 auto;
+}
+@include placeholder('margin-u-0') {
+	margin: $unit 0;
+}
+@include placeholder('margin-u2-0') {
+	margin: $unit/2 0;
+}
+@include placeholder('margin-0-u') {
+	margin: 0 $unit;
+}
+@include placeholder('margin-0-u2') {
+	margin: 0 $unit/2;
+}
+@include placeholder('margin-0-auto-u') {
+	margin: 0 auto $unit;
+}
+@include placeholder('padding-0') {
+	padding: 0;
+}
+@include placeholder('padding-u') {
+	padding: $unit;
+}
+@include placeholder('padding-u2') {
+	padding: $unit/2;
+}
+@include placeholder('padding-0-u') {
+	padding: 0 $unit;
+}
+@include placeholder('padding-0-u2') {
+	padding: 0 $unit/2;
+}
+@include placeholder('padding-u-0') {
+	padding: $unit 0;
+}
+@include placeholder('padding-u2-0') {
+	padding: $unit/2 0;
+}
+@include placeholder('padding-u2-u') {
+	padding: $unit/2 $unit;
+}
+@include placeholder('padding-u-u2') {
+	padding: $unit $unit/2;
+}
+@include placeholder('line-height-0') {
+	line-height: 0;
+}
+@include placeholder('font-family-cursive') {
+	font-family: $cursive_family;
+}
+@include placeholder('font-family-monospace') {
+	font-family: $monospace_family;
+}
+@include placeholder('font-family-body') {
+	font-family: $body_family;
+}
+@include placeholder('font-family-body-bold') {
+	font-family: $body_family-bold;
+	font-weight: $body-font-bold;
+}
+@include placeholder('font-family-heading') {
+	font-family: $heading_family;
+	text-rendering: optimizeLegibility;
+}
+@include placeholder('font-size--5') {
+	font-size: fs(-5);
+}
+@include placeholder('font-size--4') {
+	font-size: fs(-4);
+}
+@include placeholder('font-size--3') {
+	font-size: fs(-3);
+}
+@include placeholder('font-size--2') {
+	font-size: fs(-2);
+}
+@include placeholder('font-size--1') {
+	font-size: fs(-1);
+}
+@include placeholder('font-size-0') {
+	font-size: fs(0);
+}
+@include placeholder('font-size-1') {
+	font-size: fs(1);
+}
+@include placeholder('font-size-2') {
+	font-size: fs(2);
+}
+@include placeholder('font-size-3') {
+	font-size: fs(3);
+}
+@include placeholder('font-size-4') {
+	font-size: fs(4);
+}
+@include placeholder('font-size-5') {
+	font-size: fs(5);
+}
+@include placeholder('font-size-6') {
+	font-size: fs(6);
+}
+@include placeholder('font-size-7') {
+	font-size: fs(7);
+}
+@include placeholder('font-size-8') {
+	font-size: fs(8);
+}
+@include placeholder('hwa') {
+	@include hwa();
+}
+@include placeholder('border-none') {
+	border:none;
+}
+@include placeholder('list-style-none') {
+	list-style: none;
+}
+@include placeholder('pointer-events-none') {
+		pointer-events: none;
+}
+@include placeholder('user-select-none') {
+	user-select: none;
+}
+@include placeholder('ellipsis') {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+@include placeholder('hidden') {
+  position: fixed;
+	z-index: -1;
+  top: 100%;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
+@include placeholder('overflow-hidden') {
+	overflow: hidden;
+}
+@include placeholder('overflow-visible') {
+	overflow: visible;
+}
+@include placeholder('overflow-scroll') {
+	overflow: scroll;
+}
+@include placeholder('overflow-auto') {
+	overflow: auto;
+}
+@include placeholder('position-relative') {
+	position: relative;
+}
+@include placeholder('position-static') {
+	position: static;
+}
+@include placeholder('position-absolute') {
+	position: absolute;
+}
+@include placeholder('position-sticky') {
+	position: sticky;
+}
+@include placeholder('position-fixed') {
+	position: fixed;
+}
+@include placeholder('position-cover') {
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+@include placeholder('position-cover-h') {
+	top: auto; right: 0; bottom: auto; left: 0;
+}
+@include placeholder('position-cover-v') {
+	top: 0; right: auto; bottom: 0; left: auto;
+}
+@include placeholder('position-top') {
+	top: 0; right: 0; bottom: auto; left: 0;
+}
+@include placeholder('position-bottom') {
+	top: auto; right: 0; bottom: 0; left: 0;
+}
+@include placeholder('position-top-left') {
+	top: 0; right: auto; bottom: auto; left: 0;
+}
+@include placeholder('position-bottom-left') {
+	top: auto; right: auto; bottom: 0; left: 0;
+}
+@include placeholder('position-top-right') {
+	top: 0; right: 0; bottom: auto; left: auto;
+}
+@include placeholder('position-bottom-right') {
+	top: auto; right: 0; bottom: 0; left: auto;
+}
+@include placeholder('display-block') {
+	display: block;
+}
+@include placeholder('display-none') {
+	display: none;
+}
+@include placeholder('display-inline') {
+	display: inline;
+}
+@include placeholder('display-inline-block') {
+	display: inline-block;
+}
+@include placeholder('display-table') {
+	display: table;
+}
+@include placeholder('display-table-cell') {
+	display: table-cell;
+}
+@include placeholder('display-flex') {
+	display: flex;
+}
+@include placeholder('display-grid') {
+	display: grid;
+}
+@include placeholder('display-contents') {
+	display: contents;
+}
+@include placeholder('visibility-hidden') {
+	visibility: hidden;
+}
+@include placeholder('visibility-visible') {
+	visibility: visible;
+}
+@include placeholder('visibility-collapse') {
+	visibility: collapse;
+}
+@include placeholder('border-radius') {
+	border-radius: $radius;
+}
+@include placeholder('hyphens') {
+	@include hyphens();
+}
+@include placeholder('hyphens-auto') {
+	@include hyphens(auto);
+}
+@include placeholder('hyphens-none') {
+	@include hyphens(none);
+}
+@include placeholder('font-normal') {
+	font-weight: normal;
+	font-style: normal;
+}
+@include placeholder('font-bold') {
+	font-weight: 700;
+}
+@include placeholder('body-font-normal') {
+	font-weight: $body-font-normal;
+	font-style: normal;
+}
+@include placeholder('body-font-bold') {
+	font-family: $body_family_bold;
+//	font-weight: $body-font-bold;
+}
+@include placeholder('font-italic') {
+	font-style: italic;
+}
+@include placeholder('lowercase') {
+	text-transform: lowercase;
+}
+@include placeholder('capitalize') {
+	text-transform: capitalize;
+}
+@include placeholder('uppercase') {
+	text-transform: uppercase;
+	letter-spacing: .02em;
+}
+@include placeholder('text-align-center') {
+	text-align: center;
+}
+@include placeholder('text-align-left') {
+	text-align: left;
+}
+@include placeholder('text-align-justify') {
+  text-align: justify;
+	text-align-last: start;
+	//* check http://caniuse.com/#feat=css-text-align-last */
+}
+@include placeholder('text-align-justify-if-hyphens') {
+		@supports (-webkit-hyphens: auto) or
+			(-epub-hyphens: auto) or
+			(-moz-hyphens: auto) or
+			(-ms-hyphens: auto) or
+			(-o-hyphens: auto) or
+			(hyphens: auto) {
+					text-align: justify;
+					text-align-last: start;
+	}
+}
+@include placeholder('text-align-right') {
+	text-align: right;
+}
+@include placeholder('clearfix') {
+	@include clearfix;
+}
+@include placeholder('float-left') {
+	float: left;
+//	margin: 0 $unit/2 fs() 0;
+}
+@include placeholder('float-right') {
+	float: right;
+//	margin: 0 0 fs() $unit/2;
+}
+@include placeholder('clear-both') {
+	clear: both;
+}
+@include placeholder('clear-none') {
+	clear: none;
+}
+@include placeholder('clear-left') {
+	clear: left;
+}
+@include placeholder('clear-right') {
+	clear: right;
+}
+@include placeholder('middle') {
+	vertical-align: middle;
+}
+@include placeholder('transition') {
+	transition: all $transition-duration $transition-timing-function;
+	backface-visibility: hidden; // prevent some flicker in chrome
+}

@@ -1,0 +1,33 @@
+.js {
+	.js-lurked { //speed lurkers are showing up
+	transition: transform $transition-duration 0s $transition-timing-function, opacity $transition-duration/2 0s ease-in;
+	}
+}
+
+.js {
+	.js-lurk { //lurking behaviour
+		&.js-lurk { //lurking behaviour
+			$scale: .8;
+			$distance: 10%;
+			&--opacity {
+				opacity: 0;
+			}
+			&--left {
+				transform: translateX($distance/-1) scale($scale);
+				transform-origin: right top;
+			}
+			&--over {
+				transform: translateY($distance/-1) scale(1/$scale);
+				transform-origin: center bottom;
+			}
+			&--under {
+				transform: translateY($distance) scale($scale);
+				transform-origin: center top;
+			}
+			&--right {
+				transform: translateX($distance) scale($scale);
+				transform-origin: left top;
+			}
+		}
+	}
+}

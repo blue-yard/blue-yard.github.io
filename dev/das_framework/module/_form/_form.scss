@@ -1,0 +1,140 @@
+$invalid_background-color: $white;
+$invalid_shadow-color: $negative-color;
+$invalid_color: $negative-color;
+$valid_background-color: $positive_color;
+$valid_color: $white;
+$focus_background-color: $white;
+$focus_color: $black;
+$empty_background-color: $white;
+$empty_color: $black;
+
+// email				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+// german zip 	pattern="[0-9]{5,5}"
+
+
+
+.form {
+// 	also see _fieldset and _field
+	@extend %form;
+}
+
+
+
+%form {
+
+//	input:required:focus[value=""]{
+//	  background-color: $focus_background-color;
+//	  color: $focus_color;
+//	}
+//
+//	&:invalid {
+//		.button--primary {
+//			span {
+//				//opacity: .5;
+//				//cursor:not-allowed;
+//			}
+//		}
+//		input:valid {
+//		  background-color: $valid_background-color;
+//		  color: $valid_color;
+//		}
+//		input:required {
+//		  background-color: $invalid_background-color;
+//			color: $invalid_color;
+//			&:not([value=""]) {
+//		  	background-color: $bright;
+//		  	color: $body-color;
+//			}
+//		}
+//	}
+//	input:required:not([value=""]):focus:invalid{
+//	  background-color:	$focus_background-color;
+//		color: $focus_color;
+//	}
+//	input:required:invalid{
+//	  background-color:  $invalid_background-color;
+//		color: $invalid_color;
+//	}
+//
+//
+//	&:valid {
+//		input {
+//		//	@include _(font-bold);
+//		}
+//		.button--primary button {
+//	//		box-shadow: 0 0 $unit 0 hsla(0, 0%, 100%, .5);
+//			&:hover , &:focus{
+//				background-color: $accent-color;
+//				color: $main-dark;
+//			}
+//			&:focus {
+//				box-shadow: 0 0 0 3px $accent-dark inset;
+//			}
+//		}
+//	}
+//	input:valid, input:required:not([value=""]):valid{
+//	  background-color:  $valid_background-color;
+//		color: $valid_color;
+//	}
+//
+
+
+
+	@include _(margin-u-0);
+	@include _(padding-0);
+	label {
+	}
+	.button {
+		@include _(font-size-0);
+	}
+	textarea {
+		@include _(transition);
+		height: 5em;
+		min-height: 3em;
+		resize:vertical;
+		&:focus {
+			//min-height: 10em;
+		}
+	}
+/*
+		&__input[type="search"] {
+			appearance: none;
+			@include _(background-color-white);
+			@include _(margin-0);
+			border-color: $light;
+			padding-right: 3em; // due to the absolute positioning of search icon to push search-cancel-button in
+			padding-left: 3em; // for centered text-align
+			@include _(text-align-center);
+			&:focus {
+				@include _(text-align-left);
+				padding-left: $unit/2;
+			}
+			// overwrite default none values from normalize.scss in order to display clear button in input field
+			&::-webkit-search-cancel-button {
+				-webkit-appearance: searchfield-cancel-button;
+			}
+			&::-webkit-search-decoration {
+				-webkit-appearance: searchfield-decoration;
+			}
+		}
+		&__button {
+			@include _(overflow-hidden);
+			@include _(position-absolute);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: auto;
+			padding: 0 $unit/2;
+			line-height: 1;
+			@include _(color-white); @include _(font-smoothing-legacy);			@include _(background-color-accent);
+			@include _(border-none);
+			&-text {
+				@include _(hidden);
+			}
+			&:before {
+				padding-right: 0;
+			}
+		}
+*/
+
+}

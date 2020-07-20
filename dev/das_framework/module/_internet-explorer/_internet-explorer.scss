@@ -1,0 +1,70 @@
+.browserupgrade {
+	@include _(position-fixed);
+	@include _(position-top);
+	z-index: z(modal);
+}
+
+
+//conditional comments in head give us:
+
+.ie6 {}
+.ie7 {}
+.ie8 {}
+.ie9 {}
+
+
+
+// https://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11#answer-20541859
+// suggests :
+
+//IE 8,9 and 10
+
+//@media screen\0 {
+//    .ie8910 {property:value;}
+//}
+
+
+//IE 9, 10
+
+//@media screen and (min-width:0\0) {
+//	.ie910{property:value\9;} /* backslash-9 removes ie11+ & old Safari 4 */
+//}
+
+
+//IE9, 10, 11
+
+// targeting IE9 IE10 and IE11 with this nasty hack
+
+//@media screen and (min-width:0\0) and (min-resolution: +72dpi) {
+//}
+// IE10
+
+//_:-ms-lang(x), .ie10 {
+// 	property:value\9;  /* backslash-9 removes ie11+ & old Safari 4 */
+//}
+
+// IE 10 , 11
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.portfolio {
+		.deck__figure {
+			background-color: $white;
+			box-shadow: 0 -1px inset;
+		}
+	 .deck__url {
+			a {
+				color: currentColor;
+			}
+		}
+	}
+	.update {
+		&__brand-logo {
+			display: none;
+		}
+	}
+}
+
+// IE 11
+
+//_:-ms-fullscreen, :root .ie11up { property:value; } {}
+

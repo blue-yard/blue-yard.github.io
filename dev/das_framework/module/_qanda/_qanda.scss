@@ -1,0 +1,239 @@
+:root {
+	--viewportheight: #{100vh};
+		@media (hover: none) {
+			--viewportheight: #{100%};
+		}
+}
+.qanda {
+	//background: green;
+
+	.footer {
+	//background: teal;
+	}
+	@include _(hwa);
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: var(--viewportheight);
+	@include _(user-select-none);
+	color: $white;
+//	display: flex;
+//	flex-flow: column nowrap;
+//	place-content: center;
+	display: grid;
+	grid-template-areas:
+	'outer'
+	'nav'
+	'footer'
+	;
+	$navheight: $u*2;
+	$footerheight: $u*2;
+
+	grid-template-rows: 1fr #{$navheight} #{$footerheight};
+
+	margin: 0;
+	padding: 0;
+	@include _(text-align-center);
+	&__background {
+	  > * {
+			pointer-events: none;
+		 	position: relative;
+	 		opacity: 0;
+		 	transition: opacity 0s $duration*4 $easing;
+		 	z-index: -1;
+		 &.current {
+		 	transition: opacity $duration*4 $easing;
+		 	opacity: 1;
+		 	z-index: 1;
+		 }
+	 }
+	}
+	&__outer {
+		//background: red;
+		grid-area: outer;
+		align-self: center;
+		margin: auto;
+	}
+	&__nav {
+		align-self: start;
+		@include breakpoint(medium) {
+			align-self: end;
+		}
+		padding: 0;
+		grid-area: nav;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		font-size: 50px;
+		line-height: 1;
+		&-dot {
+		//	display: grid;
+		//	grid-template-columns: repeat(5, 1fr);
+			font-size: 1rem;
+			width: calc(100% - #{$u*2});
+			max-width: $line_width;
+			display: flex;
+			flex-flow: row nowrap;
+			> * {
+				flex: 1 0 $u;
+			}
+			&-item {
+				position: relative;
+				pointer-events: all;
+				cursor: pointer;
+				color: inherit;
+				opacity: .2;
+				padding: $navheight/2 $u/4 $navheight/2;
+				transition: opacity $duration $easing;
+				&.current {
+					opacity: 1;
+					cursor: default;
+				}
+				&:after {
+					display: block;
+					content: '';
+					background-color: $white;
+					//width: $u;
+					width: auto;
+					height: $u/16;
+					transition: width $duration $easing;
+					//@include breakpoint(medium) {
+					//	width: $u*2;
+					//}
+					//@include breakpoint(large) {
+					//	width: $u*3;
+					//}
+				}
+			}
+		}
+		//&-step {
+		//	a {
+		//		pointer-events: all;
+		//		color: inherit;
+		//		display: block;
+		//		margin: 0 $u/2;
+		//		&:after {
+		//			content: $arrow;
+		//			font-size: fs(4) * 2;
+		//		}
+		//		&.previous {
+		//			transform: scaleX(-1);
+		//		}
+		//	}
+		//}
+	}
+	&__list {
+		@include _(position-relative);
+		display: grid;
+		grid-template-areas: 'item';
+		place-items: center;
+		place-content: center;
+	//	height: calc(#{var(--viewportheight)} -  #{$navheight} - #{$footerheight});
+		padding: var(--headerlogoheight) 0 0 0;
+	}
+	&__item {
+		grid-area: item;
+		max-width: $line_width * 1.25;
+		display: grid;
+		grid-template-rows: 7fr 7fr;
+		grid-template-areas:
+			'question'
+			'answer'
+			;
+		align-items: end;
+		pointer-events: none;
+		//height: 0;
+		//overflow: hidden;
+		> * {
+		 	color: inherit;
+		 	opacity: 0;
+		 	transition-property: opacity;
+		 	transition-timing-function: $transition-timing-function;
+		 	transition-delay: 0s;
+		 	transition-duration: .5s;
+		 	.is-just-loaded & {
+		 		opacity: 0;
+		 		transition-delay: -6s;
+				}
+		}
+		a {
+			display: block;
+			color: inherit;
+		}
+		&:first-child {
+		 .qanda__question {
+		 	grid-row-start: question-start;
+		 	grid-row-end: answer-end;
+		 	align-self: center;
+			}
+	 	}
+		&.current {
+			pointer-events: all;
+			//height: auto;
+			.qanda__question {
+				transition-duration: 1s;
+				transition-delay: 1s;
+		 	}
+		 	.qanda__answer {
+		 		transition-duration: 3s;
+		 		transition-delay: 3s;
+			}
+			> * {
+				opacity: 1;
+				.is-just-loaded & {
+					opacity: 0;
+					transition-duration: 0s;
+					transition-delay: 0s;
+				}
+			}
+		}
+	}
+	&__question {
+		grid-area: question;
+		margin: 0;
+		span {
+			display: block;
+			max-width: $line_width/2;
+			margin: 0 auto $u/2;
+			padding: 0 $u;
+			font-family: $title-family;
+		}
+		font-size: fs(3);
+		@include _(transition);
+		@include breakpoint(large) {
+				font-size: fs(5);
+		}
+	}
+	&__answer {
+		grid-area: answer;
+		align-self: start;
+		max-width: 100%;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: center;
+		line-height: 0;
+		> * {
+			flex: 0 0 auto;
+			//padding: $u/4 $u/2;
+			padding: .8vmin 1.6vmin;
+		}
+		img {
+			@extend %paintwhite;
+		//	$h: 4.5vmin;
+		//	height: $h;
+		//	max-width: $h*5;
+				$logosize: 9vmin;
+				width: calc(#{$logosize} * #{var(--logow)}) ;
+				height: calc(#{$logosize} * #{var(--logoh)}) ;
+				transform: translateY(calc(#{$logosize} * #{var(--logoy) /100}));
+			@include _(transition);
+			object-fit: contain;
+			object-position: center;
+		}
+	}
+}

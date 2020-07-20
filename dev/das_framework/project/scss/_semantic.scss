@@ -1,0 +1,210 @@
+:root {
+	--headerlogoheight: #{$u*2};
+	@include breakpoint(medium) {
+	--headerlogoheight: #{$u*3};
+		&.is-scroll--start .body-index {
+	//		--headerlogoheight: #{$u*4};
+		}
+	}
+	:root { //arrEntity logos
+		--logow: 1;
+		--logoh: 1;
+		--logor: 1;
+		--logoa: 1;
+	}
+}
+
+
+.page-banner {
+	position: sticky;
+	background-color: hsl(190, 15%, 76%);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-image: url('image/banner.jpg');
+//	@include breakpoint(medium) {
+//	 background-image: url('project/image/cover--medium.jpg');
+//	}
+//	@include breakpoint(large) {
+//	 background-image: url('project/image/cover--large.jpg');
+//	}
+//	@include breakpoint(huge) {
+//	 background-image: url('project/image/cover--huge.jpg');
+//	}
+
+	.body-index & {
+		position: fixed;
+		background: none;
+	}
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: z(fixed);
+	@include _(display-flex);
+	flex-flow: row nowrap;
+	align-items: center;
+	@include _(margin-0);
+	padding: 0 $u;
+	@include _(transition);
+//	.body-index & {
+//		&:before {
+//			content: '';
+//			@include _(position-absolute);
+//			@include _(position-cover);
+//			background-image: $gradient--white;
+//			box-shadow: 0px 0px 2px 0px hsla(0, 0%, 0%, .2);
+//			@include _(transition);
+//			.is-scroll--start & {
+//				opacity: 0;
+//			}
+//		}
+//	}
+	&__logo {
+		z-index: z(up);
+		.logo {
+			@include _(transition);
+			@include _(margin-0);
+			width: var(--headerlogoheight);
+			height: var(--headerlogoheight);
+			background-color: $brand-color;
+				.body-index & {
+					background-color: $transparent;
+				}
+		//	.is-scroll--start & {
+		//	}
+		}
+	}
+	&__nav {
+		margin: 0 0 0 auto;
+		z-index: z(up);
+		@include _(font-size--1);
+		@include breakpoint(medium) {
+			@include _(font-size-1);
+		}
+		li {
+			@include _(display-inline-block);
+		}
+		a {
+			@include _(display-block);
+			@include _(padding-u2);
+			@include _(transition);
+			color: $black;
+			.body-index & {
+				color: $white;
+			}
+		}
+	}
+}
+
+.page-header {
+	display: grid;
+	grid-template-areas: 'stack';
+	> * {
+		grid-area: stack;
+	}
+
+	position: relative;
+//	height: 100vh;
+	overflow: hidden;
+}
+
+
+.page-main {
+	@include _(position-relative);
+	z-index: z(up);
+	@include _(background-color-white);
+	padding-top: $u*2;
+	//min-height: calc(100vh - #{var(--headerlogoheight)};
+}
+
+
+//.page-footer {
+//	@include _(position-relative);
+//	z-index: z(up);
+//	padding: $u 0;
+//	@include _(text-align-center);
+//	h2 {
+//	//	@include _(color-white);
+//	}
+//	@include breakpoint(medium) {
+//	 padding: $u*2 $u;
+//	}
+//	@include breakpoint(large) {
+//	 @include _(display-flex);
+//	 flex-flow: row nowrap;
+//	 justify-content: space-between;
+//	}
+//
+//	background-color: hsl(190, 15%, 76%);
+//	background-repeat: no-repeat;
+//	background-size: cover;
+//	background-position: center center;
+//	background-image: url('project/image/cover.jpg');
+//	@include breakpoint(medium) {
+//	 background-image: url('project/image/cover--medium.jpg');
+//	}
+//	@include breakpoint(large) {
+//	 background-image: url('project/image/cover--large.jpg');
+//	}
+//	@include breakpoint(huge) {
+//	 background-image: url('project/image/cover--huge.jpg');
+//	}
+//}
+//.social {
+//	@include _(display-inline-block);
+//	@include _(padding-u-0);
+//	@include breakpoint(medium) {
+//		@include _(padding-u);
+//	}
+//	&__heading {
+//		@include _(display-inline-block);
+//		@include _(margin-0);
+//		@include _(padding-0-u);
+//		vertical-align: middle;
+//		@include _(font-size-5);
+//		line-height: $line-height--footer;
+//	}
+//	&__nav {
+//		@include _(display-inline-block);
+//		@include _(padding-0-u2);
+//		li {
+//			vertical-align: baseline;
+//			@include _(display-inline-block);
+//			@include _(padding-0-u2);
+//		}
+//		a {
+//			@include _(display-block);
+//		}
+//	}
+//}
+.footer {
+	padding: $u;
+	display: flex;
+	align-items: center;
+	.footer__legal {
+		@include _(font-size--2);
+		@include _(transition);
+		&:hover {
+			@include _(font-size-0);
+		}
+		@media (hover: hover) {
+			font-size: fs(-1);
+		}
+		margin: 0 $u/2 0 auto;
+		a {
+			white-space: nowrap;
+			.qanda & {
+				opacity: .7;
+				color: $white;
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+.legal {
+	//padding: $u;
+	@include _(text-align-center);
+}
+

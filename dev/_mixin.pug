@@ -1,0 +1,172 @@
+include _entity.pug
+
+mixin debug
+	#responsive-breakpoint
+
+
+mixin movie
+	.movie.qanda__background.qanda-parent
+		- var cachebust = Math.floor(Math.random() * 99099999999999);
+		- var n = 0;
+		- var classname = 'video current'
+			while n < 5
+				if n != 0
+					- classname = 'video';
+				video(class!=classname playsinline preload="metadata" muted poster='video/blueyard__'+ n +'.jpg')
+					source(src='video/blueyard__'+ n +'.webm'+ '?cachebust=' + cachebust type='video/webm')
+					source(src='video/blueyard__'+ n +'.mp4'+ '?cachebust=' + cachebust type='video/mp4')
+					source(src='video/blueyard__'+ n +'.ogv'+ '?cachebust=' + cachebust type='video/ogg')
+				- n++
+
+mixin qanda__item(item)
+	li.qanda__item(class!=attributes.class data-probability!= item.probability)
+		h2.qanda__question
+			if (item.questionhref)
+				a(href!=item.questionhref, target="_blank")
+					span= item.question
+			else
+				span= item.question
+
+		ul.qanda__answer
+			each answer in item.arrAnswer
+				- href = 'http://' + answer['domain'] + '/'
+				- src = "image/entity/" + answer['logo']
+				- title = answer['name']
+
+
+				- logowidth = answer['logowidth']
+				- logoheight = answer['logoheight']
+				- logow = logowidth / Math.sqrt(logowidth * logoheight)
+				- logoh = 1/logow
+				- logoy = answer['logotop']
+				li
+					a(href= href, target="_blank")
+						img(src= src, title= title, alt= title, style= '--logow:' + logow +';--logoh:' + logoh+';--logoy:' + logoy)
+
+mixin portfolio-deck__card(company, link)
+
+	- logowidth = company['logowidth']
+	- logoheight = company['logoheight']
+	- logow = logowidth / Math.sqrt(logowidth * logoheight)
+	- logoh = 1/logow
+
+
+	li.deck__card.js-lurk.js-lurk--opacity.js-lurk--under(style="color:" + company['color'])
+		figure.deck__figure
+			.portfolio__brand-logo
+				img(src="image/entity/" + company['logo'] alt= company['name'], style= '--logow:' + logow +';--logoh:' + logoh)
+			figcaption.deck__url
+				a(href="http://" + company['domain'] + "/" title="visit website")
+					span!= company['domain']
+		a(href= link title="learn more")
+			.deck__text
+				p
+						strong= company['name']
+						block
+
+mixin updates-deck__card(company, link, image, alt, logocolormode)
+
+	- logowidth = company['logowidth']
+	- logoheight = company['logoheight']
+	- logow = logowidth / Math.sqrt(logowidth * logoheight)
+	- logoh = 1/logow
+
+
+	li.deck__card.js-lurk.js-lurk--opacity.js-lurk--under
+		a(href= link title="learn more")
+			figure.deck__figure
+				img.update__image(src="image/update/" + image, alt= alt)
+				img.update__brand-logo(class=logocolormode src="image/entity/" + company['logo'], alt= company['name'], style= '--logow:' + logow +';--logoh:' + logoh)
+			.deck__text
+				p
+					block
+
+
+mixin page-banner--index
+	.page-banner
+		.page-banner__logo
+			figure.logo
+				img(src="image/logo.svg" alt="BlueYard" title="BlueYard")
+		nav.page-banner__nav
+			ul
+				li
+					a(href="https://medium.com/@BlueYard") Updates
+				li
+					a(href="https://twitter.com/blueyard") Twitter
+
+
+mixin page-banner
+	.page-banner
+		.page-banner__logo
+			figure.logo
+				a(href="index.html")
+					img(src="image/logo.svg" alt="BlueYard" title="BlueYard")
+		nav.page-banner__nav
+			ul
+				li
+					a(href="https://medium.com/@BlueYard") Updates
+				li
+					a(href="https://twitter.com/blueyard") Twitter
+
+
+mixin footer
+	footer.footer
+		.footer__legal
+					a(href="legal-notice.html") Legal Notice
+
+
+mixin page-footer
+	footer#page-footer.page-footer
+		section#social.social
+			h2.social__heading Follow us:
+			nav.social__nav
+				ul
+					li.twitter
+						a(href="https://twitter.com/blueyard") Twitter
+					li.facebook
+						a(href="https://medium.com/@BlueYard") Medium
+		section#footer__legal.footer__legal
+					a(href="legal-notice.html") Legal Notice
+					|
+					| ·
+					|
+					a(href="coc.html") Events Code of Conduct
+	a.toplink(href="#blueyard")
+
+mixin document-head(title)
+	head
+		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+		meta(charset="utf-8")
+		title!= title
+		//if lt IE 9
+			script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
+		meta(name="apple-mobile-web-app-status-bar-style" content="black")
+		meta(name="apple-mobile-web-app-capable" content="yes")
+		meta(name="mobile-web-app-capable" content="yes")
+		meta(name="description" content="")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0")
+		// GENERATED AT http://realfavicongenerator.net/
+		link(rel="apple-touch-icon" sizes="180x180" href="image/favicon/apple-touch-icon.png")
+		link(rel="icon" type="image/png" sizes="32x32" href="image/favicon/favicon-32x32.png")
+		link(rel="icon" type="image/png" sizes="16x16" href="image/favicon/favicon-16x16.png")
+		link(rel="manifest" href="image/favicon/manifest.json")
+		link(rel="mask-icon" href="image/favicon/safari-pinned-tab.svg" color="#000000")
+		link(rel="shortcut icon" href="image/favicon/favicon.ico")
+		meta(name="apple-mobile-web-app-title" content="BlueYard")
+		meta(name="application-name" content="BlueYard")
+		meta(name="msapplication-config" content="image/favicon/browserconfig.xml")
+		meta(name="theme-color" content="#ffffff")
+		link(rel="stylesheet" href="font/font.css")
+		link(rel="stylesheet" href="das.min.css")
+		script.
+			document.documentElement.classList.add("is-just-loaded");
+			document.documentElement.classList.add("js");
+			document.documentElement.classList.remove("no-js");
+		script.
+			if (Function('/*@cc_on return document.documentMode===10@*/')()){
+			document.documentElement.className+=' ie10';
+			}
+			if (!!window.chrome) {
+			document.documentElement.className+=' is-chrome';
+			}
+		script(async defer src="das.min.js")

@@ -1,0 +1,138 @@
+// Helper Colors
+$debug_color: rebeccapurple;
+$transparent: hsla(0,0%,0%,0);
+$sepia_h: 38;
+// Project Colors
+//$main_h: 0;
+//$main_s: 0;
+//$main_l: 0;
+//$light-factor: 1.4;
+//$dark-factor: .7;
+//$main_color: 						hsl($main_h,$main_s,$main_l * 1%);
+//$main_light: 						hsl($main_h,$main_s,$main_l * $light-factor * 1%);
+//$main_dark: 						hsl($main_h,$main_s,$main_l * $dark-factor * 1%);
+//$accent_h: $main-h + 40;
+//$accent_s: 50;
+//$accent_l: 50;
+//$accent_color: 					hsl($accent_h,$accent_s,$accent_l * 1%);
+//$accent_light: 					hsl($accent_h,$accent_s,$accent_l * $light-factor * 1%);
+//$accent_dark: 					hsl($accent_h,$accent_s,$accent_l * $dark-factor * 1%);
+// Greyscale Grayscale
+$greyscale_h: 0;
+$greyscale_s: 0;
+$white: 		hsl($greyscale_h, $greyscale_s,100%);
+$bright: 		hsl($greyscale_h, $greyscale_s, 97%);
+$light: 		hsl($greyscale_h, $greyscale_s, 80%);
+$grey: 			hsl($greyscale_h, $greyscale_s, 60%);
+$dun: 			hsl($greyscale_h, $greyscale_s, 40%);
+$dark: 			hsl($greyscale_h, $greyscale_s, 20%);
+$black: 		hsl($greyscale_h, $greyscale_s, 0%);
+$gray: $grey;
+//
+
+$brand-h: 227;
+$brand-s: 98;
+$brand-l: 48;
+
+
+$brand-color: 					hsl($brand-h, $brand-s, $brand-l);
+$brand-dark: 						hsl($brand-h, $brand-s, $brand-l/3);
+
+$main_color: 						$black;
+$main_light: 						$light;
+$main_dark: 						$dark;
+
+$accent_color: 					$main_color;
+$accent_light: 					$main_light;
+$accent_dark: 					$main_dark;
+
+
+// Font colors
+$body_color: $black;
+$heading_color: $black;
+// Link colors
+$link_color: $accent-color;
+$link_hover_color: $grey; // use 'none' without the quotes as the value, if you do not want a color.
+$link_active_color: $main-dark; // use 'none' without the quotes as the value, if you do not want a color.
+$link_visited_color: none; // use 'none' without the quotes as the value, if you do not want a color.
+// Traffic Lights
+$positive_color: hsl(105,	80%,	80%);
+$mediocre_color: hsl(45,	80%,	80%);
+$negative_color: hsl(347, 80%,	80%);
+//ins del
+$ins_color: $body-color;
+$del_color: $negative_color;
+// Selection colors
+$use_selection_colors: true;
+$selection_background_color: $accent-light;
+$tap_highlight_color: $transparent;
+$selection_color: $dark;
+$placeholder_color: $grey;
+// Socialweb Colors
+$rss_color: hsl(33,60%,50%);
+$google_color: hsl(217,89%,61%);
+$googleplus_color: hsl(5,69%,54%);
+$pinterest_color: hsl(358,70%,47%);
+$youtube_color: hsl(358,79%,45%);
+$twitter_color: hsl(195,60%,50%);
+$facebook_color: hsl(222,50%,30%);
+$linkedin_color: hsl(201,100%,35%);
+$whatsapp_color: hsl(116,84%,34%);
+$instagram_color: hsl(325,50%,50%);
+$emailshare_color: $accent-dark;
+$printicon_color: $accent-dark;
+//the big list needs to be updated whenever a new color is introduced
+$list-colors: // to be used in _placeholders.scss
+// usage:
+// @include _(color-foo);
+// @include _(background-color-foo);
+// project
+	('main' $main_color)
+	('main-light' $main_light)
+	('main-dark' $main_dark)
+	('accent' $accent_color)
+	('accent-light' $accent_light)
+	('accent-dark' $accent_dark)
+// greyscale
+	('white' $white)
+	('bright' $bright)
+	('light' $light)
+	('grey' $grey)
+	('gray' $gray)
+	('dun' $dun)
+	('dark' $dark)
+	('black' $black)
+//traffic
+	('positive' $positive_color)
+	('mediocre' $mediocre_color)
+	('negative' $negative_color)
+	('ins' $ins_color)
+	('del' $del_color)
+//font
+	('body' $body_color)
+	('heading' $heading_color)
+	('link' $link_color)
+	('link-hover' $link_hover_color)
+	('link-active' $link_active_color)
+	('link-visited' $link_visited_color)
+	('selection-background' $selection_background_color)
+	('tap-highlight' $tap_highlight_color)
+	('selection' $selection_color)
+	('placeholder' $placeholder_color)
+// social
+	('rss' $rss_color)
+	('pinterest' $pinterest_color)
+	('google' $google_color)
+	('googleplus' $googleplus_color)
+	('youtube' $youtube_color)
+	('twitter' $twitter_color)
+	('facebook' $facebook_color)
+	('linkedin' $linkedin_color)
+	('whatsapp' $whatsapp_color)
+	('instagram' $instagram_color)
+	('emailshare' $emailshare_color)
+	('printicon' $printicon_color)
+// helper
+	('transparent' $transparent)
+	('inherit' inherit)
+	('debug' $debug_color);

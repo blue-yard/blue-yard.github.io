@@ -1,0 +1,37 @@
+// Those CROSS MEDIAQUERY EXTEND PLACEHOLDERS http://www.sitepoint.com/cross-media-query-extend-sass/
+// combine selectors to single lines of CSS per attribute, is meant to optimize size of CSS
+$placeholders: ();
+@mixin placeholder($name) {
+	// If placeholder doesn't exist yet in `$placeholders` list
+	@if not index($placeholders, $name) {
+		// Store its name
+		$placeholders: append($placeholders, $name) !global;
+		// At root level
+		@at-root {
+			// Looping through `$breakpoints`
+			@each $breakpoint, $width in $breakwidths {
+				// Opening a media query block
+				$height: map-get($breakheights, $breakpoint);
+				@media (min-width: $width) and (min-height: $height) {
+				// Generating a placeholder
+				// Called $name-$breakpoint
+					%#{$name}-#{$breakpoint} {
+						@content;
+					}
+				}
+			}
+			// And dumping a placeholder out of any media query as well
+			// so basically at root level
+			%#{$name}-#{$default-breakpoint} {
+				@content;
+			}
+		}
+	}
+	// If placeholder already exists, just warn the user
+	@else {
+		@warn "Placeholder `#{$name}` already exists.";
+	}
+}
+@mixin _($name) {
+	@extend %#{$name}-#{$current-breakpoint} !optional;
+}

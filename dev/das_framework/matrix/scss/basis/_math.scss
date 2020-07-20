@@ -1,0 +1,55 @@
+// the universe is math
+//soul power
+@function power($x, $n) {
+    $ret: 1;
+    @if $n >= 0 {
+        @for $i from 1 through $n {
+            $ret: $ret * $x;
+        }
+    } @else {
+        @for $i from $n to 0 {
+            $ret: $ret / $x;
+        }
+    }
+    @return $ret;
+}
+//factorial, if you know what i mean
+@function factorial ($x) {
+    $ret: 1;
+    @if $x > 0 {
+        @while $x > 0 {
+            $ret: $ret * $x;
+            $x: $x - 1;
+        }
+    } @else {
+        $ret: 1;
+    }
+    @return $ret;
+}
+//exponential
+@function exp ($x) {
+    $ret: 0;
+    @for $n from 0 to 25 {
+        $ret: $ret + power($x, $n) / factorial($n);
+    }
+    @return $ret;
+}
+//logarithm or whatever
+@function ln($x) {
+    $ret: 0;
+    $n: 1;
+    $dx: .001;
+    @while $n <= $x {
+        $ret: $ret + $dx / $n;
+        $n: $n + $dx;
+    }
+    @return $ret;
+}
+//the root of all square
+@function sqrt($x) {
+    @return exp(0.5 * ln($x));
+}
+// goldenration, you will need it someday
+$phi: (1+sqrt(5))/2;
+$phi-minor:1 - 1 / $phi;
+$phi-major:1 / $phi;

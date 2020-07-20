@@ -1,0 +1,5 @@
+// transitions
+$transition-duration: .3s;
+$duration: $transition-duration;
+$transition-timing-function: cubic-bezier(.4,0,.6,1);
+$easing: $transition-timing-function;

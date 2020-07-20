@@ -1,0 +1,75 @@
+// use hardware acceleration with this fantastic mixin
+@mixin hwa {
+	transform: translateZ(0)
+}
+@mixin font-smoothing($value: modern) {
+	// http://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/
+	// https://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+    @if $value == legacy { //grey and old. use it for light on dark
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else { //the modern default. use it for dark on light
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+// use at own risk, wasnt very liable recently
+@mixin ellipsis-multiline($lines-to-show: 4, $font-size: 1, $lh:$line-height) {  // buggy in moz when element has inline-children like a:link.
+	display: block; /* Fallback for non-webkit */
+	display: flex;
+	display: -moz-box;
+	display: -webkit-box;
+	height: $font-size * 1em * $lh * $lines-to-show ; /* Fallback for non-webkit */
+	margin: 0 auto;
+	font-size: $font-size * 1em;
+	line-height: $lh;
+	line-clamp: $lines-to-show;
+	-webkit-line-clamp: $lines-to-show;
+	box-orient: vertical;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	* {
+		display: inline;
+	}
+}
+// if you want to break it all
+@mixin word-break() {
+	-ms-word-break: break-all;
+	word-break: break-all;
+	// Non standard for webkit
+	word-break: break-word;
+}
+// to control hyphenation
+// use @include hyphens(none); to turn off for a selector.
+@mixin hyphens($hyphens: auto){
+	-webkit-hyphens: $hyphens;
+	-epub-hyphens: $hyphens;
+	-moz-hyphens: $hyphens;
+	-ms-hyphens: $hyphens;
+	-o-hyphens: $hyphens;
+	hyphens: $hyphens;
+	@if ($hyphens != 'none') {
+		// this is CSS Level 4 - use at own risk, csslint won't like it.
+		// read http://generatedcontent.org/post/44751461516/finer-grained-control-of-hyphenation-with-css4-text
+		// and http://dev.w3.org/csswg/css4-text/
+		// http://www.newnet-soft.com/blog/csstypography
+		-webkit-hyphenate-limit-lines:	2; // for safari
+		-ms-hyphenate-limit-lines:		2;
+		hyphenate-limit-lines:			2;
+		-ms-hyphenate-limit-chars:		6 3 2;
+		hyphenate-limit-chars:			6 3 2;
+		-webkit-hyphenate-before:		2;
+		-webkit-hyphenate-after: 		3;
+		hyphenate-lines: 				2;
+	}
+}
+// damn you clearfix
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}

@@ -1,0 +1,31 @@
+// ========================
+// DEBUG                  =
+// ========================
+
+
+.debug {
+
+//	#mfPreviewBar { // myfonts trial banner
+//		display: none;
+//	}
+
+	//.line-width-test {
+	//	display: block;
+	//	@include hyphens(none);
+	//	word-break: break-word;
+	//	outline: 1px solid red;
+	//}
+
+	#responsive-breakpoint {
+		@include _(position-fixed);
+		@include _(position-bottom-left);
+		@include _(padding-0-u2);
+		@include _(font-size--1);
+		@include _(font-family-monospace);
+		z-index: z(debug);
+		@include _(background-color-debug);
+		@include _(color-white);
+	}
+}
+
+
