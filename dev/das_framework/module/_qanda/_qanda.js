@@ -108,13 +108,14 @@ function quandamove(distance, debug='') {
 		for (parent of parents) {
 			for (i=0; i<Math.abs(distance);i++) {
 				var recent = parent.querySelector('.current');
+				console.log(parent.lastChild);
 				recent.classList.remove('current');
 				if(distance > 0) {
 					if ( recent.nextElementSibling )  {
-						//console.log('next');
+						console.log('next');
 						recent.nextElementSibling.classList.add('current');
 					} else {
-						//console.log('first');
+						console.log('first');
 						parent.firstChild.classList.add('current');
 					}
 				} else {
