@@ -211,7 +211,8 @@
 	&__answer {
 		grid-area: answer;
 		align-self: start;
-		max-width: 100%;
+		max-width: calc(100% - #{$u*2});
+		margin: auto;
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: center;
@@ -219,18 +220,27 @@
 		line-height: 0;
 		> * {
 			flex: 0 0 auto;
-			//padding: $u/4 $u/2;
-			padding: .8vmin 1.6vmin;
+			padding: 1.8vmin 2.5vmin;
+			@include breakpoint(medium) {
+				padding: 2vmin 3vmin;
+			}
 		}
 		img {
 			@extend %paintwhite;
 		//	$h: 4.5vmin;
 		//	height: $h;
 		//	max-width: $h*5;
-				$logosize: 9vmin;
-				width: calc(#{$logosize} * #{var(--logow)}) ;
-				height: calc(#{$logosize} * #{var(--logoh)}) ;
-				transform: translateY(calc(#{$logosize} * #{var(--logoy) /100}));
+				//$logosize: 9vmin;
+				--logosize: #{12vmin};
+
+				@include breakpoint(medium) {
+					--logosize: #{9vmin};
+				}				@include breakpoint(large) {
+					--logosize: #{8vmin};
+				}
+				width: calc(#{var(--logosize)} * #{var(--logow)}) ;
+				height: calc(#{var(--logosize)} * #{var(--logoh)}) ;
+				transform: translateY(calc(#{var(--logosize)} * #{var(--logoy) /100}));
 			@include _(transition);
 			object-fit: contain;
 			object-position: center;
