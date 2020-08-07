@@ -1350,16 +1350,6 @@
 		"plM": 52780316221407,
 		"prP": 0
 		},
-	"/image/entity/oscoin.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "/image/entity/oscoin.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 52780316221407,
-		"prP": 0
-		},
 	"/image/entity/pitch.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -1415,16 +1405,6 @@
 		"miP": 0,
 		"oA": 2,
 		"oAP": "/image/entity/spaceknow.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 52780316221407,
-		"prP": 0
-		},
-	"/image/entity/stdlib.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "/image/entity/stdlib.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 52780316221407,
