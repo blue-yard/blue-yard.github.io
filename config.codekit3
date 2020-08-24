@@ -1180,6 +1180,16 @@
 		"plM": 52780316221407,
 		"prP": 0
 		},
+	"/image/entity/biofidelity.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/image/entity/biofidelity.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
 	"/image/entity/bitbio.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -1801,7 +1811,7 @@
 "projectAttributes": {
 	"creationDate": 616952124.28298295,
 	"displayValue": "blue-yard.github.io",
-	"displayValueWasSetByUser": 0,
+	"displayValueWasSetByUser": 1,
 	"iconImageName": "/image/favicon/apple-touch-icon.png",
 	"iconImageWasSetByUser": 0
 	},
