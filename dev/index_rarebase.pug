@@ -6,7 +6,6 @@ html(lang='en' class='no-js')
 
 		+page-banner--index
 
-
 		header.page-header#page-header
 			+movie
 
@@ -23,13 +22,18 @@ html(lang='en' class='no-js')
 						+qanda__item(item)(class="current")
 
 						- var item = {}
-						- item.question = 'What if nature was our most powerful technology?'
-						- item.arrAnswer = [arrEntity.meatable,arrEntity.bitbio,arrEntity.seeqc,arrEntity.positive,arrEntity.marvelfusion,arrEntity.humm,arrEntity.dance, arrEntity.biofidelity];
+						- item.question = 'What if we could solve our largest planetary challenges?'
+						- item.arrAnswer = [arrEntity.meatable,arrEntity.seeqc,arrEntity.positive,arrEntity.marvelfusion,arrEntity.dance];
 						+qanda__item(item)
 
 						- var item = {}
 						- item.question = 'What if we could reinvent the internet for permissionless innovation?'
 						- item.arrAnswer = [arrEntity.protocollabs,arrEntity.ipfs,arrEntity.libp2p,arrEntity.filecoin,arrEntity.openzeppelin,arrEntity.radicle,arrEntity.textile];
+						+qanda__item(item)
+
+						- var item = {}
+						- item.question = 'What if we could live forever?'
+						- item.arrAnswer = [arrEntity.bitbio,arrEntity.humm,arrEntity.biofidelity, arrEntity.rarebase];
 						+qanda__item(item)
 
 						- var item = {}
@@ -44,11 +48,13 @@ html(lang='en' class='no-js')
 
 
 
+
+
 				.qanda__nav#qanda__nav
 					ul.qanda__nav-dot.qanda-parent
 						li.qanda__nav-dot-item.current
 						- var n = 0;
-							while n < 4
+							while n < 5
 								li.qanda__nav-dot-item
 								- n++
 				+footer
