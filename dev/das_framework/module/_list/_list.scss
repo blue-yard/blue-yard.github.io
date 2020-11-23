@@ -128,4 +128,12 @@ ul.roman, ol.roman {
 dl {
 	@extend %definition-list;
 }
-
+dl.table {
+	display: grid;
+	grid-template-columns: 1fr 8fr;
+	gap: $u/4 $u/2;
+	dt, dd {
+		margin: 0;
+		padding: 0;
+	}
+}

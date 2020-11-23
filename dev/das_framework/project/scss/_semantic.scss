@@ -113,7 +113,7 @@
 	@include _(position-relative);
 	z-index: z(up);
 	@include _(background-color-white);
-	padding: $u*2;
+	padding: $u*2 $u;
 	//min-height: calc(100vh - #{var(--headerlogoheight)};
 }
 
@@ -209,12 +209,48 @@
 }
 
 
-.page-event {
+.event {
+	p {max-width: $line-width;}
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	gap: $u $u*2;
+	grid-template-areas:
+		"header header"
+		"url title"
+		"time detail"
+		"intro detail"
+		"schedule detail";
+	&__header {
+		grid-area: header;
+		font-style: italic;
+	}
+	&__url {
+		grid-area: url;
+	}
+	&__detail {
+		grid-area: detail;
+		h1 {
+			margin: 0;
+		}
+	}
+	&__time {
+		grid-area: time;
+	}
+	&__intro {
+		grid-area: intro;
+	}
+	&__schedule {
+		grid-area: schedule;
+	}
+	&__title {
+		grid-area: title;
+		font-size: 2.5em;
+	}
+	a {
+		text-decoration: underline;
+	}
 	h1, h2, h3, h4, h5 {
 		text-align: left;
 		line-height: 1;
-	}
-	.page-main {
-		max-width: $line-width;
 	}
 }
