@@ -9,6 +9,14 @@
 	],
 "creatorBuild": "33081",
 "files": {
+	"/blueyard_portfolio.pdf": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blueyard_portfolio.pdf",
+		"oF": 0
+		},
 	"/CNAME": {
 		"cB": 0,
 		"ft": 8192,
@@ -1013,24 +1021,24 @@
 		"oAP": "/dev/entity_logo.sketch",
 		"oF": 0
 		},
-	"/dev/index.pug": {
-		"cB": 0,
-		"cOD": 1,
+	"/dev/foundersessions.pug": {
+		"cB": 1,
+		"cOD": 0,
 		"ft": 512,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/index.html",
+		"oAP": "/foundersessions.html",
 		"oF": 2,
 		"oS": 1
 		},
-	"/dev/index_rarebase.pug": {
+	"/dev/index.pug": {
 		"cB": 1,
 		"cOD": 0,
 		"ft": 512,
 		"hM": 1,
-		"oA": 1,
+		"oA": 0,
 		"oAP": "/index.html",
-		"oF": 3,
+		"oF": 2,
 		"oS": 1
 		},
 	"/dev/legal-notice.pug": {

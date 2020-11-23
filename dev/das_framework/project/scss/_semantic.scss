@@ -113,7 +113,7 @@
 	@include _(position-relative);
 	z-index: z(up);
 	@include _(background-color-white);
-	padding-top: $u*2;
+	padding: $u*2;
 	//min-height: calc(100vh - #{var(--headerlogoheight)};
 }
 
@@ -208,3 +208,13 @@
 	@include _(text-align-center);
 }
 
+
+.page-event {
+	h1, h2, h3, h4, h5, p {
+		text-align: left;
+		line-height: 1;
+	}
+	.page-main {
+		max-width: $line-width;
+	}
+}

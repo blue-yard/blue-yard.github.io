@@ -110,7 +110,7 @@ figcaption {
 cite {
 }
 time {
-	@include _(font-normal);
+	@include _(font-bold);
 }
 img {
 	height: auto;

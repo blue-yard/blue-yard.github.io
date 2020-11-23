@@ -212,6 +212,9 @@
 		grid-area: answer;
 		align-self: start;
 		max-width: calc(100% - #{$u*2});
+		@include breakpoint(large) {
+			max-width: 100%;
+		}
 		margin: auto;
 		display: flex;
 		flex-flow: row wrap;
