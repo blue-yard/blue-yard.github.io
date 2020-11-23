@@ -245,6 +245,7 @@
 	&__title {
 		grid-area: title;
 		font-size: 2.5em;
+		max-width: $line-width/2.5;
 	}
 	a {
 		text-decoration: underline;
