@@ -9,7 +9,7 @@ mixin movie
 		- var cachebust = Math.floor(Math.random() * 99099999999999);
 		- var n = 0;
 		- var classname = 'video current'
-			while n < 5
+			while n < 6
 				if n != 0
 					- classname = 'video';
 				video(class!=classname playsinline preload="metadata" muted poster='video/blueyard__'+ n +'.jpg')

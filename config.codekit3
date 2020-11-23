@@ -1041,16 +1041,6 @@
 		"oF": 2,
 		"oS": 1
 		},
-	"/dev/index_not.pug": {
-		"cB": 1,
-		"cOD": 0,
-		"ft": 512,
-		"hM": 1,
-		"oA": 0,
-		"oAP": "/index.html",
-		"oF": 2,
-		"oS": 1
-		},
 	"/dev/legal-notice.pug": {
 		"cB": 1,
 		"cOD": 0,
