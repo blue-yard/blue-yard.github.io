@@ -1041,6 +1041,16 @@
 		"oF": 2,
 		"oS": 1
 		},
+	"/dev/index_not.pug": {
+		"cB": 1,
+		"cOD": 0,
+		"ft": 512,
+		"hM": 1,
+		"oA": 0,
+		"oAP": "/index.html",
+		"oF": 2,
+		"oS": 1
+		},
 	"/dev/legal-notice.pug": {
 		"cB": 1,
 		"cOD": 0,
@@ -1166,6 +1176,14 @@
 		"oAP": "/font/font-min.css",
 		"oF": 0,
 		"oS": 3
+		},
+	"/foundersessions.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/foundersessions.html",
+		"oF": 0
 		},
 	"/image/banner.jpg": {
 		"ft": 16384,

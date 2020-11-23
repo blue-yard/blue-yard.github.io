@@ -6,12 +6,12 @@ html(lang='en' class='no-js')
 
 		+page-banner--index
 
+
 		header.page-header#page-header
 			+movie
 
 			section.qanda
 				.qanda__outer
-
 
 					ul#qanda__list.qanda__list.qanda-parent
 						- var item = {}
@@ -22,26 +22,32 @@ html(lang='en' class='no-js')
 						+qanda__item(item)(class="current")
 
 						- var item = {}
-						- item.question = 'What if we could solve our largest planetary challenges?'
-						- item.arrAnswer = [arrEntity.meatable,arrEntity.seeqc,arrEntity.positive,arrEntity.marvelfusion,arrEntity.dance];
+						- item.question = 'What if nature was our most powerful technology?'
+						- item.arrAnswer = [arrEntity.meatable,arrEntity.seeqc,arrEntity.positive,arrEntity.marvelfusion,arrEntity.dance, ];
 						+qanda__item(item)
 
 						- var item = {}
-						- item.question = 'What if we could free our economies of gatekeepers?'
-						- item.arrAnswer = [arrEntity.protocollabs,arrEntity.ipfs,arrEntity.libp2p,arrEntity.filecoin,arrEntity.openzeppelin,arrEntity.radicle,arrEntity.textile,arrEntity.airtm,arrEntity.centrifuge,arrEntity.decred];
+						- item.question = 'What if we could reinvent the internet for permissionless innovation?'
+						- item.arrAnswer = [arrEntity.protocollabs,arrEntity.ipfs,arrEntity.libp2p,arrEntity.filecoin,arrEntity.openzeppelin,arrEntity.radicle,arrEntity.textile];
 						+qanda__item(item)
 
 						- var item = {}
 						- item.question = 'What if we could live long and prosper?'
-						- item.arrAnswer = [arrEntity.bitbio,arrEntity.humm,arrEntity.biofidelity, arrEntity.rarebase];
+						- item.arrAnswer = [arrEntity.bitbio,arrEntity.biofidelity,arrEntity.humm,arrEntity.rarebase];
 						+qanda__item(item)
+
 
 						- var item = {}
 						- item.question = 'What if we could untangle software monopolies and liberate data?'
-						- item.arrAnswer = [arrEntity.pitch,arrEntity.autocode,arrEntity.nextmatter,arrEntity.grid,arrEntity.vectary,arrEntity.spaceknow];
+						- item.arrAnswer = [arrEntity.pitch,arrEntity.autocode,arrEntity.nextmatter,arrEntity.grid,arrEntity.vectary,arrEntity.spaceknow,arrEntity.wonder];
 						+qanda__item(item)
 
 
+
+						- var item = {}
+						- item.question = 'What if we could enable the separation of state and money?'
+						- item.arrAnswer = [arrEntity.airtm,arrEntity.decred,arrEntity.centrifuge,arrEntity.grin];
+						+qanda__item(item)
 
 
 
@@ -49,7 +55,7 @@ html(lang='en' class='no-js')
 					ul.qanda__nav-dot.qanda-parent
 						li.qanda__nav-dot-item.current
 						- var n = 0;
-							while n < 4
+							while n < 5
 								li.qanda__nav-dot-item
 								- n++
 				+footer
