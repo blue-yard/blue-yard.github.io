@@ -1031,6 +1031,16 @@
 		"oF": 2,
 		"oS": 1
 		},
+	"/dev/foundersessions_bak.pug": {
+		"cB": 0,
+		"cOD": 1,
+		"ft": 512,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/dev/foundersessions_bak.html",
+		"oF": 0,
+		"oS": 0
+		},
 	"/dev/index.pug": {
 		"cB": 1,
 		"cOD": 0,
