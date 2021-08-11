@@ -1397,6 +1397,16 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/image\/entity\/lottie.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/image\/entity\/lottie.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/image\/entity\/marvelfusion.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -1412,6 +1422,16 @@
       "miP" : 0,
       "oA" : 2,
       "oAP" : "\/image\/entity\/meatable.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/image\/entity\/next-matter.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/image\/entity\/next-matter.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 52780316221407,
